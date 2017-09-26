@@ -22,7 +22,7 @@ nav.navMenu {
     float: left;
     max-width: 160px;
     padding: 1em;
-    padding-top: 10em;
+    margin-top: 10em;
     position: fixed;
 }
 
@@ -51,6 +51,7 @@ div.main-content {
     margin-bottom: 3em;
     position: static;
     border-left: .5em solid #036D19;
+    min-height: 40em;
 }
 
 div.input-group{
@@ -83,21 +84,21 @@ h1.tittleRow{
 }
 
 /**/
-a.film-title {
-    color: #cc0000;
+a {
+    color: #14CC60;
     cursor: pointer;
 }
 
-a.film-title:link {
-    color: #cc0000;
+a:link {
+    color: #14CC60;
     cursor: pointer;
 }
-a.film-title:visited {
-    color: #999999;
+a:visited {
+    color: #27FB6B;
     cursor: pointer;
 }
-a.film-title:hover {
-    color: #ff3300;
+a:hover {
+    color: #27FB6B;
     cursor: pointer;
 }
 /**/
@@ -121,6 +122,19 @@ button.headerButton{
     margin: 4px;
     cursor: pointer;
 }
+
+button.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+}
+
 /**/
 
 div.divLogin {
@@ -163,7 +177,6 @@ html{
 
 div.film-detail-card {
     padding: 5em;
-    min-height: 40em;
 }
 
 div.film-detail-text {
