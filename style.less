@@ -1,15 +1,3 @@
-/* place for your css or less style */
-
- ul {
-    width: 176px;
-}
-
-div.container {
-    width: 100%;
-    border: 1px solid green;
-    background-color: #1A2123;
-}
-
 header{
     padding: 1em;
     color: white;
@@ -38,23 +26,25 @@ nav.navMenu {
     position: fixed;
 }
 
+div.container-fluid {
+    width: 100%;
+    postion: static;
+    background-color: #1A2123;
+}
+
 div.row-content {
     padding: 15px;
     overflow: visible;
 }
-img.film-image {
-	width: 160px;
-    height: 245px;
-    padding-right: 10px;
-}
+
 div.film-card {
 	max-width: 180px;
     padding: 10px;
     overflow: visible;
     display: table-cell;
     text-align: left;
-
 }
+
 div.main-content {
     margin-left: 150px;
     margin-top: 7em;
@@ -69,15 +59,30 @@ div.input-group{
     max-width: 30em;
 }
 
+img.film-image {
+    width: 160px;
+    height: 245px;
+    padding-right: 10px;
+}
+
+img.film-detail-image {    
+    width: 160px;
+    height: 245px;
+    float: left;
+}
+
 h1.main-header{
     max-width: 5em;
     float: left;
+    color:white;
 }
 
 
 h1.tittleRow{
     padding-left: .7em;
 }
+
+/**/
 a.film-title {
     color: #cc0000;
     cursor: pointer;
@@ -95,7 +100,7 @@ a.film-title:hover {
     color: #ff3300;
     cursor: pointer;
 }
-
+/**/
 /**/
 div.divHeaderButton{
     float:right;
@@ -117,3 +122,54 @@ button.headerButton{
     cursor: pointer;
 }
 /**/
+
+div.divLogin {
+    margin-left: 10em;
+    margin-top: 7em;
+    margin-bottom: 3em;
+    float: center;
+    padding-bottom: 5em;
+    
+}
+
+button.login{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    min-width: 15em;
+}
+
+div.LogInput{
+    padding-top: 0.5em;
+    max-width: 30em;
+    margin-left: 10em;
+}
+
+p.login-text {
+
+}
+
+html{
+    background-color: #1A2123;
+}
+
+
+div.film-detail-card {
+    padding: 5em;
+    min-height: 40em;
+}
+
+div.film-detail-text {
+    padding-left: 15em;
+}
+
+h2.film-detail-title {
+    margin-top: 0;
+}
