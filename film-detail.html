@@ -18,14 +18,12 @@
         <header>
             <!-- cambio orden-->
             <div class="divHeaderButton">
-
-                <a href="login.html"><button type="button" class="headerButton">Identifícate</button></a>
-                <a href="register.html"><button type="button" class="headerButton">Regístrate</button></a>
-
+                <a href="login.html"><button type="button" class="headerButton">Identificate</button></a>
+                <a href="register.html"><button type="button" class="headerButton">Registrate</button></a>
             </div>
             <!---->
             <div>
-                <a href="index.html"><h1 class="main-header">UAM Play</h1></a>
+                <h1 class="main-header">UAM Play</h1>
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
@@ -34,25 +32,29 @@
 
         </header>
         <div class="container-fluid">
-            <div class="divLogin">
-                <div class="LogInput">
-           <h2>Inicia sesión</h2>
+            <nav class="navMenu">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Acción</a></li>
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Comedia</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Animación</a></li>
+                        <li><a href="#">Infantil</a></li>
+                    </ul>
                 </div>
-                <div class="LogInput">
-                    <h5>Nombre de usuario: </h5>
-                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+            </nav>
+            <div class="main-content">
+                <div class="film-detail-card">               
+                    <img class="film-detail-image" src="https://upload.wikimedia.org/wikipedia/en/f/f9/TheAvengers2012Poster.jpg">
+                    <div class="film-detail-text">
+                        <h2 class="film-detail-title"> Los Vengadores </h2>
+                        <h5> Género: Aventuras </h5>
+                        <h6> Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </h6>
+                        <button type="button" class="login">Comprar</button>
+                    </div>
                 </div>
-                <div class="LogInput">
-                    <h5>Contraseña: </h5>
-                <input type="password" class="form-control" placeholder="Contraseña">
-                </div>
-                <div class="LogInput">
-                    <button type="button" class="login">Identifícate</button>
-                </div>
-                <div class="LogInput">
-                    ¿No tienes cuenta?, <a href="register.html">Regístrate aquí</a>
-                </div>
-
             </div>
         </div>
         <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
