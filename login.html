@@ -15,23 +15,39 @@
 
     </head>
     <body>
-        <header>
+      <header>
+            <!-- cambio orden-->
             <div class="divHeaderButton">
 
-                <a href="login.html"><button type="button" class="headerButton">Identifícate</button></a>
-                <a href="register.html"><button type="button" class="headerButton">Regístrate</button></a>
+                <a class="headerButton" href="login.html">Identifícate</a>
+                <a class="headerButton" href="register.html">Regístrate</a>
 
             </div>
+            <!---->
             <div>
                 <a href="index.html"><h1 class="main-header">UAM Play</h1></a>
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
-                <div class="input-group-btn"><a href="index.html"><button type="button" class="btn btn-default dropdown-toggle">Buscar</button></a></div>
+                <a class="input-group-btn" href="index.html">Buscar</a>
             </div>
 
         </header>
         <div class="container-fluid">
+          <nav class="navMenu">
+              <div class="dropdown">
+                  <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="index.html">Acción</a></li>
+                      <li><a href="index.html"></a></li>
+                      <li><a href="index.html">Comedia</a></li>
+                      <li><a href="index.html">Drama</a></li>
+                      <li><a href="index.html">Animación</a></li>
+                      <li><a href="index.html">Infantil</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <div class="main-content">
             <div class="divLogin">
                 <div class="LogInput">
            <h2>Inicia sesión</h2>
@@ -45,7 +61,7 @@
                 <input type="password" class="form-control" placeholder="Contraseña">
                 </div>
                 <div class="LogInput">
-                    <a href="index-logged.html"><button type="button" class="login">Identifícate</button></a>
+                    <a class = "login" href="index-logged.html">Identifícate</a>
                 </div>
                 <div class="LogInput">
                     ¿No tienes cuenta?, <a href="register.html">Regístrate aquí</a>
@@ -53,6 +69,7 @@
 
             </div>
         </div>
+      </div>
         <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
 
 
