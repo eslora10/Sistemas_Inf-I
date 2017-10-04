@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-	<link rel="stylesheet" type="text/css" href="style.less">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="editor" content="brix.io">
         <title>UAM PLAY</title><!-- Bootstrap -->
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"><!-- Font Awesome -->
         <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"><!-- User -->
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css"><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --><!-- WARNING: Respond.js doesn't work if you view the page via file:// --><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><!--[endif]----><!-- jQuery (necessary for Bootstrap's JavaScript plugins) --><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><!-- Include all compiled plugins (below), or include individual files as needed --><script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.less">
 
 
     </head>
     <body>
-    	<header>
+      <header>
             <!-- cambio orden-->
             <div class="divHeaderButton">
 
-                <a href="login.html"><button type="button" class="headerButton">Identifícate</button></a>
-                <a href="register.html"><button type="button" class="headerButton">Regístrate</button></a>
+                <a class="headerButton" href="login.html">Identifícate</a>
+                <a class="headerButton" href="register.html">Regístrate</a>
 
             </div>
             <!---->
@@ -29,7 +29,8 @@
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
-                <div class="input-group-btn"><a href="index.html"><button type="button" class="btn btn-default dropdown-toggle">Buscar</button></a></div>
+                <a class="input-group-btn" href="index.html">Buscar</a>
+            </div>
 
         </header>
         <div class="container-fluid">
@@ -48,14 +49,15 @@
             </nav>
             <div class="main-content">
                 <div class="film-detail-card">
-                    <img class="film-detail-image" src="./media/img/TheAvengers2012Poster.jpg">
+                    <img class="film-detail-image" src="./media/img/TheAvengers2012Poster.jpg" alt='Avengers'>
                     <div class="film-detail-text">
                         <h2 class="film-detail-title"> Los Vengadores </h2>
                         <h5> Género: Aventuras </h5>
                         <h6> Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </h6>
+                        <h2>10€</h2>
                         <div>
-                            <a href="login.html"><button type="button" class="login">Comprar</button></a>
-                            <a href="login.html"> <button type="button" class="login">Añadir a la cesta</button> </a>
+                            <a class="login" href="login.html">Comprar</a>
+                            <a class="login" href="login.html">Añadir a la cesta</a>
                         </div>
                     </div>
                 </div>
