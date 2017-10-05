@@ -47,13 +47,14 @@
           </div>
       </nav>
       <div class="main-content">
-            <form class="divLogin" action="PHP/register.php" method="post">
+            <form class="divLogin" action="index.php" method="post">
 
 		            <div class="LogInput">
 			               <h2>Regístrate</h2>
                 </div>
-
                 <div class="LogInput">
+
+                  <h4 class="error"> <?php echo $argv[1] ?> <h4>
     		        <h5>Nombre de usuario: </h5>
                     <input name="nickname" type="text" class="form-control" placeholder="Nombre de usuario">
                 </div>
@@ -67,7 +68,7 @@
                 </div>
                 <div class="LogInput">
                     <h5>Repite contraseña: </h5>
-                <input name="password" type="password" class="form-control" placeholder="Contraseña">
+                <input name="password2" type="password" class="form-control" placeholder="Contraseña">
                 </div>
                 <div class="LogInput">
     	            <h5> Tarjeta de crédito: </h5>
