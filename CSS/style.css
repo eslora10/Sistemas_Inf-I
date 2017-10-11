@@ -237,7 +237,7 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-    background-color: #036D19;
+    background-colorNick: #036D19;
 }
 /**/
 
@@ -258,6 +258,15 @@ h3.basket-total {
     text-align: right;
     margin-right: 15%;
 }
+
 .error{
     color: red;
+}
+.errorHidden{
+  display:none ;
+  color:red;
+}
+
+.meter{
+  width: 100%;
 }
