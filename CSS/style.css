@@ -178,7 +178,7 @@ button.btn {
     padding-bottom: 5em;
 }
 
-a.login{
+.login{
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -257,4 +257,7 @@ h2.film-detail-title {
 h3.basket-total {
     text-align: right;
     margin-right: 15%;
+}
+.error{
+    color: red;
 }

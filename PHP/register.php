@@ -47,7 +47,7 @@
           </div>
       </nav>
       <div class="main-content">
-            <form class="divLogin">
+            <form class="divLogin" action="../PHP/check-register.php" METHOD=post>
 
 		            <div class="LogInput">
 			               <h2>Regístrate</h2>
@@ -55,22 +55,31 @@
 
                 <div class="LogInput">
     		        <h5>Nombre de usuario: </h5>
-                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+                    <input type="text" name="nick" class="form-control" placeholder="Nombre de usuario" required>
+                    <?php echo "<h6 class=\"error\">$msg_nick</h6>" ?>
                 </div>
     	          <div class="LogInput">
     	            <h5>e-mail: </h5>
-                  <input type="text" class="form-control" placeholder="e-mail">
+                    <input type="text" name="email" class="form-control" placeholder="e-mail" required>
+                    <?php echo "<h6 class=\"error\">$msg_email</h6>" ?>
                 </div>
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
-                <input type="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                    <?php echo "<h6 class=\"error\">$msg_password</h6>" ?>
+                </div>
+                <div class="LogInput">
+                    <h5>Repita contraseña: </h5>
+                    <input type="password" name="password_rep" class="form-control" placeholder="Repita contraseña" required>
+                    <?php echo "<h6 class=\"error\">$msg_password_rep</h6>" ?>
                 </div>
                 <div class="LogInput">
     	            <h5> Tarjeta de crédito </h5>
-                <input type="text" class="form-control" placeholder="Tarjeta de crédito">
+                    <input type="text" name="ccard" class="form-control" placeholder="Tarjeta de crédito" required>
+                    <?php echo "<h6 class=\"error\">$msg_card</h6>" ?>
                 </div>
                 <div class="LogInput">
-                  <a class="login" href="index-logged.html">Regístrate</a>
+                  <input type="Submit" class="login" value="Registrate">
                 </div>
                 <div class="LogInput">
                 ¿Ya tienes cuenta? <a href="login.html">Identifícate aquí</a>
