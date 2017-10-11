@@ -9,6 +9,25 @@
         <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"><!-- User -->
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+
+<!-- len username-->
+        <script type="text/javascript">
+        $(document).ready(function() {
+           $('#send').click(function(){
+            if($("#nick").val().length < 8) {
+            $(".errorNick").show();
+            return false;
+        }
+           });
+        });
+        </script>
+       <!-- len username-->
+
+       <!--complexify para el meter de la password-->
+
+
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../CSS/style.css">
 
@@ -17,7 +36,6 @@
       <header>
             <!-- cambio orden-->
             <div class="divHeaderButton">
-
                 <a class="headerButton" href="login.html">Identifícate</a>
                 <a class="headerButton" href="register.html">Regístrate</a>
 
@@ -47,7 +65,7 @@
           </div>
       </nav>
       <div class="main-content">
-            <form class="divLogin">
+            <form class="divLogin" action='/index-logged.html' method='post'>
 
 		            <div class="LogInput">
 			               <h2>Regístrate</h2>
@@ -55,7 +73,11 @@
 
                 <div class="LogInput">
     		        <h5>Nombre de usuario: </h5>
-                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+                    <input type="text" id = 'nick' class="form-control" placeholder="Nombre de usuario">
+                    <div id='errorNick' class="errorNick" ><!-- display:block-->
+                      El nick debe tener 8 caractere minimo
+                    </div>
+
                 </div>
     	          <div class="LogInput">
     	            <h5>e-mail: </h5>
@@ -63,14 +85,15 @@
                 </div>
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
-                <input type="password" class="form-control" placeholder="Contraseña">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
+                <meter value="0" id="PassValue" max="100"></meter>
                 </div>
                 <div class="LogInput">
     	            <h5> Tarjeta de crédito </h5>
                 <input type="text" class="form-control" placeholder="Tarjeta de crédito">
                 </div>
                 <div class="LogInput">
-                  <a class="login" href="index-logged.html">Regístrate</a>
+                    <input type="submit" id='send' value='Registrate'>
                 </div>
                 <div class="LogInput">
                 ¿Ya tienes cuenta? <a href="login.html">Identifícate aquí</a>
