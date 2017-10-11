@@ -258,3 +258,9 @@ h3.basket-total {
     text-align: right;
     margin-right: 15%;
 }
+
+
+.errorNick{
+  display:none ;
+  color:red;
+}
