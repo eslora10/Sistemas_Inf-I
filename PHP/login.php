@@ -19,17 +19,17 @@
             <!-- cambio orden-->
             <div class="divHeaderButton">
 
-                <a class="headerButton" href="login.html">Identifícate</a>
-                <a class="headerButton" href="register.html">Regístrate</a>
+                <a class="headerButton" href="login.php">Identifícate</a>
+                <a class="headerButton" href="register.php">Regístrate</a>
 
             </div>
             <!---->
             <div>
-                <a href="index.html"><h1 class="main-header">UAM Play</h1></a>
+                <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
-                <a class="input-group-btn" href="index.html">Buscar</a>
+                <a class="input-group-btn" href="index.php">Buscar</a>
             </div>
 
         </header>
@@ -38,33 +38,35 @@
               <div class="dropdown">
                   <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="index.html">Acción</a></li>
-                      <li><a href="index.html"></a></li>
-                      <li><a href="index.html">Comedia</a></li>
-                      <li><a href="index.html">Drama</a></li>
-                      <li><a href="index.html">Animación</a></li>
-                      <li><a href="index.html">Infantil</a></li>
+                      <li><a href="index.php">Acción</a></li>
+                      <li><a href="index.php"></a></li>
+                      <li><a href="index.php">Comedia</a></li>
+                      <li><a href="index.php">Drama</a></li>
+                      <li><a href="index.php">Animación</a></li>
+                      <li><a href="index.php">Infantil</a></li>
                   </ul>
               </div>
           </nav>
           <div class="main-content">
-            <form class="divLogin">
+            <form class="divLogin" action="check-login.php" method=post>
                 <div class="LogInput">
            <h2>Inicia sesión</h2>
                 </div>
                 <div class="LogInput">
                     <h5>Nombre de usuario: </h5>
-                    <input type="text" class="form-control" placeholder="Nombre de usuario">
+                    <input type="text" name="nick" class="form-control" placeholder="Nombre de usuario" required>
+                    <?php echo "<h6 class=\"error\">$msg_nick</h6>" ?>
                 </div>
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
-                <input type="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                    <?php echo "<h6 class=\"error\">$msg_password</h6>" ?>
                 </div>
                 <div class="LogInput">
-                    <a class = "login" href="index-logged.html">Identifícate</a>
+                    <input type="Submit" class="login" value="Identificate">
                 </div>
                 <div class="LogInput">
-                    ¿No tienes cuenta?, <a href="register.html">Regístrate aquí</a>
+                    ¿No tienes cuenta?, <a href="register.php">Regístrate aquí</a>
                 </div>
 
             </form>

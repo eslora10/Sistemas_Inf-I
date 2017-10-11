@@ -115,31 +115,9 @@
                 });
             });
         </script>
-
-
-
-
-
-
-
-
-        <!--complexify para el meter de la password-->
-        <!-- works fine ??
-        <script type="text/javascript" src="/js/jquery.complexify.js"></script>
-        <script type="text/javascript">
-        $("#password").complexify({}, callback(valid, complexity){
-          $("#scoreMeter").text=complexity);
-        });
-        </script>
--->
-
-
-
-
-
-
-<!---->
-
+      
+      
+      
 
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../CSS/style.css">
@@ -149,17 +127,18 @@
       <header>
             <!-- cambio orden-->
             <div class="divHeaderButton">
-                <a class="headerButton" href="login.html">Identifícate</a>
-                <a class="headerButton" href="register.html">Regístrate</a>
+
+                <a class="headerButton" href="login.php">Identifícate</a>
+                <a class="headerButton" href="register.php">Regístrate</a>
 
             </div>
             <!---->
             <div>
-                <a href="index.html"><h1 class="main-header">UAM Play</h1></a>
+                <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
-                <a class="input-group-btn" href="index.html">Buscar</a>
+                <a class="input-group-btn" href="index.php">Buscar</a>
             </div>
 
         </header>
@@ -168,12 +147,12 @@
           <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="index.html">Acción</a></li>
-                  <li><a href="index.html"></a></li>
-                  <li><a href="index.html">Comedia</a></li>
-                  <li><a href="index.html">Drama</a></li>
-                  <li><a href="index.html">Animación</a></li>
-                  <li><a href="index.html">Infantil</a></li>
+                  <li><a href="index.php">Acción</a></li>
+                  <li><a href="index.php"></a></li>
+                  <li><a href="index.php">Comedia</a></li>
+                  <li><a href="index.php">Drama</a></li>
+                  <li><a href="index.php">Animación</a></li>
+                  <li><a href="index.php">Infantil</a></li>
               </ul>
           </div>
       </nav>
@@ -244,7 +223,8 @@
 
 
                 <div class="LogInput">
-                ¿Ya tienes cuenta? <a href="login.html">Identifícate aquí</a>
+
+                ¿Ya tienes cuenta? <a href="login.php">Identifícate aquí</a>
                 </div>
 
 
