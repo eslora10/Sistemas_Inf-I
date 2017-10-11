@@ -11,21 +11,70 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
+<!-- NUESTROS SCRIPTS JS/JQ-->
 
-<!-- len username-->
+
+        <!-- len username-->
         <script type="text/javascript">
-        $(document).ready(function() {
-           $('#send').click(function(){
-            if($("#nick").val().length < 8) {
-            $(".errorNick").show();
-            return false;
-        }
-           });
+            $(document).ready(function() {
+               $('#send').click(function(){
+                if($("#nick").val().length < 8) {
+                $("#errorNick").show();
+                return false;
+                }
+               });
+            });
+        </script>
+       <!-- valid email-->
+       <script>
+           function validar_email( email ){
+             var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+             return regex.test(email) ? true : false;
+           }
+           $(document).ready(function() {
+              $('#send').click(function(){
+                 if( !validar_email( $("#email").val() ) ){
+                  $("#errorEmail").show();
+                  return false;
+                }
+              });
+            });
+
+        </script>
+
+        <script>
+
+        //works fine????????
+            $(document).ready(function(){
+              if( $("#ccard").isNumeric() ==false){
+               $("#errorCcard").show();
+               return false;
+              }
+
+
+
+            });
+
+
+        </script>
+
+
+        <!--complexify para el meter de la password-->
+        <!-- works fine ??-->
+        <script type="text/javascript" src="/js/jquery.complexify.js"></script>
+        <script type="text/javascript">
+        $("#password").complexify({}, callback(valid, complexity){
+          $("#PassValue").text=complexity);
         });
         </script>
-       <!-- len username-->
 
-       <!--complexify para el meter de la password-->
+
+
+
+
+
+
+<!---->
 
 
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -73,48 +122,64 @@
 
                 <div class="LogInput">
     		        <h5>Nombre de usuario: </h5>
-                    <input type="text" name="nick" class="form-control" placeholder="Nombre de usuario" required>
+                    <input type="text" name="nick" id=nick class="form-control" placeholder="Nombre de usuario" required>
                     <?php echo "<h6 class=\"error\">$msg_nick</h6>" ?>
-                    <div id='errorNick' class="errorNick" ><!-- display:block-->
+
+                    <h5 id='errorNick' class="errorHidden" ><!-- display:block-->
                       El nick debe tener 8 caractere minimo
-                    </div>
+                    </h5>
+
+
                 </div>
     	          <div class="LogInput">
     	            <h5>e-mail: </h5>
-                    <input type="text" name="email" class="form-control" placeholder="e-mail" required>
+                    <input type="text" name="email" id=email class="form-control" placeholder="e-mail" required>
                     <?php echo "<h6 class=\"error\">$msg_email</h6>" ?>
+
+                    <h5 id='errorEmail' class="errorHidden" ><!-- display:block-->
+                      Introduce un mail valido
+                    </h5>
+
+
                 </div>
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
-<<<<<<< HEAD:PHP/register.php
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
+
+                    <meter value="0" id="PassValue" max="100"></meter>
+
                     <?php echo "<h6 class=\"error\">$msg_password</h6>" ?>
                 </div>
+
+
                 <div class="LogInput">
                     <h5>Repita contraseña: </h5>
                     <input type="password" name="password_rep" class="form-control" placeholder="Repita contraseña" required>
                     <?php echo "<h6 class=\"error\">$msg_password_rep</h6>" ?>
-=======
-                <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña">
-                <meter value="0" id="PassValue" max="100"></meter>
->>>>>>> 24a8a49d6cc242b81e7f500edc290959508bf30e:HTML/register.html
                 </div>
+
+
                 <div class="LogInput">
     	            <h5> Tarjeta de crédito </h5>
-                    <input type="text" name="ccard" class="form-control" placeholder="Tarjeta de crédito" required>
+                    <input type="number" name="ccard" id="ccard" class="form-control" placeholder="Tarjeta de crédito" required>
                     <?php echo "<h6 class=\"error\">$msg_card</h6>" ?>
+
+                    <h5 id='errorCcard' class="errorHidden" ><!-- display:block-->
+                      Introduce un mail valido
+                    </h5>
                 </div>
+
+
                 <div class="LogInput">
-<<<<<<< HEAD:PHP/register.php
-                  <input type="Submit" class="login" value="Registrate">
-=======
-                    <input type="submit" id='send' value='Registrate'>
->>>>>>> 24a8a49d6cc242b81e7f500edc290959508bf30e:HTML/register.html
+                  <input type="Submit" id='send' class="login" value="Registrate">
                 </div>
+
+
                 <div class="LogInput">
                 ¿Ya tienes cuenta? <a href="login.html">Identifícate aquí</a>
-
                 </div>
+
+
             </form>
         </div>
       </div>
