@@ -5,7 +5,7 @@
         $msg_nick = "";
     } else {
         $msg_nick = "Campo obligatorio";
-        $err = 1;         
+        $err = 1;
     }
     if(isset($_REQUEST["email"])){
         $email = $_REQUEST["email"];
@@ -44,19 +44,22 @@
         $err = 1 ;
     }
     if($err == 1){
-        /*Aqui deberiamos volver a generar el formulario con 
-         los errores correspondientes*/            
+        /*Aqui deberiamos volver a generar el formulario con
+         los errores correspondientes*/
         include("register.php");
     } else {
         /*Se crea un nuevo usuario*/
-        mkdir("../usuarios/$nick");
+        if(!mkdir("../usuarios/$nick")){
+          $msg_nick = "Error al crear usuario";
+          include("register.php");
+        } else {
 
-        $fdata = fopen("../usuarios/$nick/datos.dat", "w");
-        $c_pass = md5($password);
-        $saldo = rand(0, 100);
-        fwrite($fdata, "$nick\n$c_pass\n$ccard\n$saldo");
-        setcookie("nick", $nick, time() + 60);
-        
-        /*include("index.php");*/
+            $fdata = fopen("../usuarios/$nick/datos.dat", "w");
+            $c_pass = md5($password);
+            $saldo = rand(0, 100);
+            fwrite($fdata, "$nick\n$c_pass\n$email\n$ccard\n$saldo");
+            setcookie("nick", $nick, time() + 60*3);
+            include("index.php");
+      }
     }
 ?>

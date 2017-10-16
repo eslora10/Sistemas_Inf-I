@@ -104,7 +104,7 @@
                 $("#password").on("keypress keyup keydown", function() {
                     var pass = $(this).val();
                     var score=calcScore(pass)
-                    
+
                     //$("#scoreStr").text('Fortaleza:'+passStr(score));
                     //$("#scoreNum").text("("+score +"%)");
 
@@ -115,9 +115,9 @@
                 });
             });
         </script>
-      
-      
-      
+
+
+
 
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../CSS/style.css">
@@ -125,14 +125,12 @@
     </head>
     <body>
       <header>
-            <!-- cambio orden-->
             <div class="divHeaderButton">
 
                 <a class="headerButton" href="login.php">Identifícate</a>
                 <a class="headerButton" href="register.php">Regístrate</a>
 
             </div>
-            <!---->
             <div>
                 <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>

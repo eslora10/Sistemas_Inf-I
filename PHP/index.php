@@ -20,9 +20,8 @@
     </head>
     <body>
       <header>
-            <!-- cambio orden-->
             <div class="divHeaderButton">
-                <?php 
+                <?php
                     if(isset($_COOKIE["nick"])) {
                         $nick = $_COOKIE["nick"];
                         echo "<nav>";
@@ -35,14 +34,13 @@
                         echo "</ul>";
                         echo "</div>";
                         echo "</nav>";
-                    } else {                    
+                    } else {
                         echo "<a class=\"headerButton\" href=\"login.php\">Identifícate</a>";
                         echo "<a class=\"headerButton\" href=\"register.php\">Regístrate</a>";
                     }
                 ?>
 
             </div>
-            <!---->
             <div>
                 <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
