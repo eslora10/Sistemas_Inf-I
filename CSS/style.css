@@ -260,11 +260,17 @@ h3.basket-total {
 }
 
 .error{
-    color: red;
+  color: red;
 }
+
 .errorHidden{
   display:none ;
   color:red;
+}
+
+.okHidden{
+  display:none ;
+  color:green;
 }
 
 .meter{
