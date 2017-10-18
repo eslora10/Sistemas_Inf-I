@@ -11,7 +11,7 @@
 
 
         <!-- NUESTROS SCRIPTS JS/JQ-->
-        <script src="../JS/register.js"></script>
+        <script src="../JS/register.js?<?php echo time();?>"></script>
 
 
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -61,8 +61,8 @@
                     <input type="text" name="nick" id=nick class="form-control" placeholder="Nombre de usuario" required>
                     <?php echo "<h5 class=\"error\">$msg_nick</h5>" ?>
 
-                    <h5 id='errorNick' class="errorHidden" ><!-- display:block-->
-                      El nick debe tener 8 caracteres minimo.
+                    <h5 id='errorNick' class="errorHidden" >
+                      <!-- campo vacio rellenar con js-->
                     </h5>
 
 
@@ -72,8 +72,8 @@
                     <input type="text" name="email" id=email class="form-control" placeholder="e-mail" required>
                     <?php echo "<h6 class=\"error\">$msg_email</h6>" ?>
 
-                    <h5 id='errorEmail' class="errorHidden" ><!-- display:block-->
-                      Introduce un mail valido.
+                    <h5 id='errorEmail' class="errorHidden" >
+                        <!-- campo vacio rellenar con js-->
                     </h5>
 
 
@@ -81,7 +81,7 @@
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
-
+Submit
                     <div><!--estos div calculan la fortaleza de la password-->
                         <span id="scoreStr"></span>
                         <span id="scoreNum"></span>
@@ -98,7 +98,7 @@
                     <?php echo "<h5 class=\"error\">$msg_password_rep</h5>" ?>
 
                     <h5  id='password_OK' class="errorHidden" >
-                      Las contraseñas no coinciden.
+                      <!-- campo vacio rellenar con js-->
                     </h5>
                 </div>
 
