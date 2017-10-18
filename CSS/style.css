@@ -69,10 +69,9 @@ div.main-content {
     position: static;
 }
 
-div.input-group{
+.input-group{
 	 padding: 1.5em;
     padding-left: 3em;
-    max-width: 40em;
 }
 /**/
 img.film-image {
@@ -144,18 +143,25 @@ a.headerButton{
     width: 100px;
     height: 40px;
 }
+input.form-control{
+    width: 100%;
+}
 
-a.input-group-btn{
+div.header-form {
+    overflow: hidden;
+}
+input.input-group-btn{
     background-color: #4CAF50;
     border: none;
+    padding: none;
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin: 4px;
     cursor: pointer;
     width: 80px;
     height: 34px;
+    float: right;
 }
 
 button.btn {
@@ -237,7 +243,7 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-    background-colorNick: #036D19;
+    background-color: #036D19;
 }
 /**/
 
@@ -260,13 +266,26 @@ h3.basket-total {
 }
 
 .error{
-    color: red;
+  color: red;
 }
+
 .errorHidden{
   display:none ;
   color:red;
 }
 
+.okHidden{
+  display:none ;
+  color: green;
+}
+
 .meter{
   width: 100%;
+}
+
+.select-header {
+    background-color: #4CAF50;
+    float: left;
+    height: 34px;
+    margin-right: 0.5em;
 }
