@@ -61,14 +61,6 @@
                 <input type="text" class="form-control" name="search">
                     </div>
             </form>
-          <!--
-          <form class="input-group" action="index.php" method="get">
-              <input type="text" class="form-control" placeholder="Busqueda">
-              <input class="input-group-btn" type="submit" value="Buscar">
-              
-              
-          </form>
--->
 
         </header>
         <div class="container-fluid">

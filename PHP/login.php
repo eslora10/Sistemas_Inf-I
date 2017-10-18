@@ -16,37 +16,50 @@
     </head>
     <body>
       <header>
-            <!-- cambio orden-->
             <div class="divHeaderButton">
-
-                <a class="headerButton" href="login.php">Identifícate</a>
-                <a class="headerButton" href="register.php">Regístrate</a>
+                <?php
+                    if(isset($_COOKIE["nick"])) {
+                        $nick = $_COOKIE["nick"];
+                        echo "<nav>";
+                        echo "<div class=\"dropdown\">";
+                        echo "<button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\">$nick <span class=\"caret\"></span></button>";
+                        echo "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\">";
+                        echo "<li><a href=\"../HTML/history.html\">Historico</a></li>";
+                        echo "<li><a href=\"../HTML/basket.html\">Carrito</a></li>";
+                        echo "<li><a href=\"login.php\">Log out</a></li>";
+                        echo "</ul>";
+                        echo "</div>";
+                        echo "</nav>";
+                    } else {
+                        echo "<a class=\"headerButton\" href=\"login.php\">Identifícate</a>";
+                        echo "<a class=\"headerButton\" href=\"register.php\">Regístrate</a>";
+                    }
+                ?>
 
             </div>
-            <!---->
             <div>
                 <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
-            <div class="input-group">
-                <input type="text" class="form-control">
-                <a class="input-group-btn" href="index.php">Buscar</a>
-            </div>
+          
+            <form class="input-group" method="get" action="index.php">
+                <input type=submit class="input-group-btn">
+                <select class="select-header" name="genre">
+                    <option value="Todos" selected>Todos</option>
+                    <option value="Accion">Accion</option>
+                    <option value="Aventuras">Aventuras</option> 
+                    <option value="Thriller">Thriller</option>
+                    <option value="Comedia">Comedia</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Superheroes">Superheroes</option>
+                </select>
+                <div class="header-form">
+                <input type="text" class="form-control" name="search">
+                    </div>
+            </form>
 
         </header>
         <div class="container-fluid">
-          <nav class="navMenu">
-              <div class="dropdown">
-                  <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="index.php">Acción</a></li>
-                      <li><a href="index.php"></a></li>
-                      <li><a href="index.php">Comedia</a></li>
-                      <li><a href="index.php">Drama</a></li>
-                      <li><a href="index.php">Animación</a></li>
-                      <li><a href="index.php">Infantil</a></li>
-                  </ul>
-              </div>
-          </nav>
           <div class="main-content">
             <form class="divLogin" action="check-login.php" method=post>
                 <div class="LogInput">
