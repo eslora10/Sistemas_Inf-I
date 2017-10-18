@@ -2,9 +2,10 @@
 //len username
     $(document).ready(function() {
        $('#nick').blur(function(){
-        if($("#nick").val().length < 8) {
-        $("#errorNick").show();
-        return false;
+        var validFolder = new RegExp('\w');
+        if(!validFolder.test($("#nick").val())){
+          $("#errorNick").show().text('Los nombres de usuario solo pueden contener letras, números, guiones bajos y puntos.');
+          return
         }
        });
     });
@@ -17,7 +18,7 @@ $(document).ready(function() {
        if(($('#password').val().length == 0) || ($('#password_rep').val().length == 0))
          return false
        if (pass !== repass)
-         $("#password_OK").show();
+         $("#password_OK").show().text('Las contraseñas no coinciden.');
    });
 });
 
@@ -33,7 +34,7 @@ $(document).ready(function() {
    $(document).ready(function() {
       $('#email').blur(function(){
          if( !validar_email( $("#email").val() ) ){
-          $("#errorEmail").show();
+          $("#errorEmail").show().text('Introduce un mail valido.');
           return false;
         }
       });
