@@ -88,6 +88,10 @@
                     <meter class=meter value=0.01 id="scoreMeter"></meter>
 
                     <?php echo "<h5 class=\"error\">$msg_password</h5>" ?>
+
+                    <h5  id='passLen' class="errorHidden" >
+                      <!-- campo vacio rellenar con js-->
+                    </h5>
                 </div>
 
 
