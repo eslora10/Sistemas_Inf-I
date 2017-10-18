@@ -81,7 +81,6 @@
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
                     <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
-Submit
                     <div><!--estos div calculan la fortaleza de la password-->
                         <span id="scoreStr"></span>
                         <span id="scoreNum"></span>
