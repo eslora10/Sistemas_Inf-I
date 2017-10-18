@@ -25,11 +25,11 @@
             </div>
             <!---->
             <div>
-                <a href="index.html"><h1 class="main-header">UAM Play</h1></a>
+                <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
             <div class="input-group">
                 <input type="text" class="form-control">
-                <a class="input-group-btn" href="index.html">Buscar</a>
+                <a class="input-group-btn" href="index.php">Buscar</a>
             </div>
 
         </header>
@@ -38,26 +38,40 @@
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">Géneros <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="index.html">Acción</a></li>
-                        <li><a href="index.html"></a></li>
-                        <li><a href="index.html">Comedia</a></li>
-                        <li><a href="index.html">Drama</a></li>
-                        <li><a href="index.html">Animación</a></li>
-                        <li><a href="index.html">Infantil</a></li>
+                        <li><a href="index.php">Acción</a></li>
+                        <li><a href="index.php"></a></li>
+                        <li><a href="index.php">Comedia</a></li>
+                        <li><a href="index.php">Drama</a></li>
+                        <li><a href="index.php">Animación</a></li>
+                        <li><a href="index.php">Infantil</a></li>
                     </ul>
                 </div>
             </nav>
             <div class="main-content">
                 <div class="film-detail-card">
-                    <img class="film-detail-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'>
+                    <?php
+                    /*Cargamos el catalogo*/
+                    $catalogo = simplexml_load_file("../XML/catalogo.xml");
+                    /*Obtenemos la pelicula a partir del nombre que viene en GET*/
+                    $film = $_REQUEST['film'];
+                    $pelicula = $catalogo->xpath("/catalogo/pelicula[titulo=\"$film\"]")[0];
+                    echo "<img class=\"film-detail-image\" src=\"$pelicula->poster\" alt='$pelicula->titulo'>";
+                    ?>
+                    
                     <div class="film-detail-text">
-                        <h2 class="film-detail-title"> Los Vengadores </h2>
-                        <h5> Género: Aventuras </h5>
-                        <h6> Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </h6>
-                        <h2>10€</h2>
+                        <?php
+                        echo "<h2 class=\"film-detail-title\">$pelicula->titulo</h2>";
+                        echo "<h5> Géneros:";
+                        foreach ($pelicula->generos->children() as $genero)
+                            echo " $genero";
+                        echo "</h5>";
+                        
+                        echo "<h6>$pelicula->sinopsis </h6>";
+                        echo "<h2>$pelicula->precio €</h2>";
+                        ?>
                         <div>
-                            <a class="login" href="login.html">Comprar</a>
-                            <a class="login" href="login.html">Añadir a la cesta</a>
+                            <a class="login" href="login.php">Comprar</a>
+                            <a class="login" href="login.php">Añadir a la cesta</a>
                         </div>
                     </div>
                 </div>
