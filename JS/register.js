@@ -16,6 +16,18 @@
 
 //same password
 $(document).ready(function() {
+   $('#password').blur(function() {
+       var pass = $('#password').val();
+
+       if(($('#password').val().length >=8))
+         return false
+       $("#passLen").show().text('Las contraseña debe tener 8 caracteres como minimo.');
+   });
+});
+
+
+//same password
+$(document).ready(function() {
    $('#password_rep').blur(function() {
        var pass = $('#password').val();
        var repass = $('#password_rep').val();
