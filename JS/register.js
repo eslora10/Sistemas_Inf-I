@@ -1,8 +1,12 @@
 
+
+
 //len username
     $(document).ready(function() {
        $('#nick').blur(function(){
-        var validFolder = new RegExp('\w');
+        if(($('#nick').val().length == 0))
+           return false
+        var validFolder = /^([a-zA-Z0-9_\.\-])+$/;
         if(!validFolder.test($("#nick").val())){
           $("#errorNick").show().text('Los nombres de usuario solo pueden contener letras, números, guiones bajos y puntos.');
           return
