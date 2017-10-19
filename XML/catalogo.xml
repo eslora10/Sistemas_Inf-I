@@ -1,5 +1,6 @@
 <catalogo>      
     <pelicula>
+        <id>1</id>
         <titulo>Los Vengadores</titulo>
         <generos>
           <genero>Aventuras</genero>
@@ -11,6 +12,7 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
+        <id>2</id>
         <titulo>Piratas del Caribe: La maldicion de la Perla Negra</titulo>
         <generos>
           <genero>Aventuras</genero>

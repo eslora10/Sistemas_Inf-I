@@ -90,7 +90,7 @@
                         echo "<h1 class=\"tittleRow\">$genero</h1>";
                         foreach ($peliculas as $pelicula){
                             echo "<span>";
-                            echo "<a href=\"film-detail.php?film=$pelicula->titulo\" class=\"film-card\">";
+                            echo "<a href=\"film-detail.php?film=$pelicula->id\" class=\"film-card\">";
                             echo "<span>";
                             echo "<img class=\"film-image\" src=\"$pelicula->poster\" alt='$pelicula->titulo'><br>";
                             echo "$pelicula->titulo";                            

@@ -67,7 +67,7 @@
                     $catalogo = simplexml_load_file("../XML/catalogo.xml");
                     /*Obtenemos la pelicula a partir del nombre que viene en GET*/
                     $film = $_REQUEST['film'];
-                    $pelicula = $catalogo->xpath("/catalogo/pelicula[titulo=\"$film\"]")[0];
+                    $pelicula = $catalogo->xpath("/catalogo/pelicula[id=\"$film\"]")[0];
                     echo "<img class=\"film-detail-image\" src=\"$pelicula->poster\" alt='$pelicula->titulo'>";
                     ?>
                     

@@ -23,6 +23,9 @@
         $fdata = fopen("../usuarios/$nick/datos.dat", "r");
         $fnick = fgets($fdata);
         $c_password = fgets($fdata);
+        $email = fgets($fdata);
+        $ccard = fgets($fdata);
+        $saldo = fgets($fdata);
         $pass = md5("$password");
         if (strcmp($c_password, "$pass\n")) {
             $err = 1;
@@ -32,6 +35,9 @@
     if($err == 1){
         include("login.php");
     } else {
+        session_start();
+        $_SESSION['nick'] = $nick;
+        $_SESSION['saldo'] = $saldo;
         setcookie("nick", $nick, time() + 60);
         include("index.php");
     }
