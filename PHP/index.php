@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -22,11 +25,12 @@
       <header>
             <div class="divHeaderButton">
                 <?php
-                    if(isset($_COOKIE["nick"])) {
-                        $nick = $_COOKIE["nick"];
+                    if(isset($_SESSION['nick'])) {
                         echo "<nav>";
                         echo "<div class=\"dropdown\">";
-                        echo "<button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\">$nick <span class=\"caret\"></span></button>";
+                        echo "<button class=\"btn dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\">";
+                        echo $_SESSION['nick'];
+                        echo "<span class=\"caret\"></span></button>";
                         echo "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\">";
                         echo "<li><a href=\"../HTML/history.html\">Historico</a></li>";
                         echo "<li><a href=\"../HTML/basket.html\">Carrito</a></li>";
