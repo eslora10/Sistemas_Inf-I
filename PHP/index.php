@@ -106,7 +106,7 @@ session_start();
 
 
         </div>
-        <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
+        <?php include("includeFooter.php") ?>
 
 
 </body></html>

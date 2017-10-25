@@ -82,7 +82,7 @@ if (isset($_REQUEST["f_sent"])){
             </form>
         </div>
       </div>
-        <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
+        <?php include("includeFooter.php") ?>
 
 
 </body></html>
