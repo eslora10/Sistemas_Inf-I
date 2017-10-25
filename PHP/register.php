@@ -166,7 +166,7 @@ if(isset($_REQUEST["f_sent"])){
                         <span id="scoreStr"></span>
                         <span id="scoreNum"></span>
                     </div>
-                    <meter class=meter value=0.01 id="scoreMeter"></meter>
+                    <meter class=meter value=0.01 low="0.25" high="0.75" id="scoreMeter"></meter>
 
                     <?php echo "<h5 class=\"error\">$msg_password</h5>" ?>
 
