@@ -84,7 +84,7 @@
                         ?>
                         <div>
                             <a class="login" href="login.php">Comprar</a>
-                            <a class="login" href="login.php">Añadir a la cesta</a>
+                            <a class="login" href="basket_update.php?film=<?php echo "$film"; ?>">Añadir a la cesta</a>
                         </div>
                     </div>
                 </div>

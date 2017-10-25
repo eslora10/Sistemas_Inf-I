@@ -44,6 +44,7 @@ div.container-fluid {
 }
 
 div.row-content {
+    margin-left: 10%;
     padding: 15px;
     overflow: visible;
 }
@@ -62,7 +63,6 @@ div.row-content {
 }
 
 div.main-content {
-    margin-left: 150px;
     margin-bottom: 3em;
     padding-top: 0%;
     padding-bottom: 30px;
@@ -122,6 +122,9 @@ a:hover {
     cursor: pointer;
 }
 
+a.header-link:hover{
+    color: white;
+}
 /**/
 /**/
 div.divHeaderButton{

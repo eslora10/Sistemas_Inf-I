@@ -43,6 +43,15 @@ session_start();
                         echo "<a class=\"headerButton\" href=\"register.php\">Regístrate</a>";
                     }
                 ?>
+                <h6>Articulos en el <a class="header-link" href="basket.php">carro</a>: 
+                    <?php                     
+                    if(isset($_SESSION["basketNitems"])){
+                        echo $_SESSION["basketNitems"];
+                    } else {
+                        echo "0";
+                    }
+                    ?>
+                </h6>
 
             </div>
             <div>
