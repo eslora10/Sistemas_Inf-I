@@ -1,7 +1,7 @@
 <?php
 if(isset($_REQUEST["f_sent"])){
     /*El formulario fue enviado, comprobamos que este correcto*/
-    
+
         $err = 0;
     if(isset($_REQUEST["nick"])){
         $nick = $_REQUEST["nick"];
@@ -53,11 +53,11 @@ if(isset($_REQUEST["f_sent"])){
             $c_pass = md5($password);
             $saldo = rand(0, 100);
             fwrite($fdata, "$nick\n$c_pass\n$email\n$ccard\n$saldo");
-            setcookie("nick", $nick, time() + 60*3);
-            header("Location: http://localhost/Sistemas_Inf-I/PHP/");
+            setcookie("nick", $nick, time() + 60*60);
+            header("Location: index.php");
         } else {
             $msg_nick = "Error al crear usuario";
-            
+
       }
     }
 }
@@ -110,13 +110,13 @@ if(isset($_REQUEST["f_sent"])){
             <div>
                 <a href="index.php"><h1 class="main-header">UAM Play</h1></a>
             </div>
-          
+
             <form class="input-group" method="get" action="index.php">
                 <input type=submit class="input-group-btn">
                 <select class="select-header" name="genre">
                     <option value="Todos" selected>Todos</option>
                     <option value="Accion">Accion</option>
-                    <option value="Aventuras">Aventuras</option> 
+                    <option value="Aventuras">Aventuras</option>
                     <option value="Thriller">Thriller</option>
                     <option value="Comedia">Comedia</option>
                     <option value="Drama">Drama</option>
