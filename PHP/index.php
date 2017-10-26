@@ -49,59 +49,7 @@ session_start();
 
 
               ?>
-              <!--
-
-
-                <div class="row-content">
-                  <h1 class="tittleRow">Estrenos</h1>
-            -->
-
-                  <!--<span><a href="film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br><div class="info-card">Los vengadores</div></span>
-                  </a></span>-->
-                <!--
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                </div>
-
-
-                <div class="row-content">
-                  <h1 class="tittleRow">Estrenos</h1>
-
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                </div>
-
-                <div class="row-content">
-                  <h1 class="tittleRow">Estrenos</h1>
-
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                  <span><a href="../HTML/film-detail.html" class="film-card"><span><img class="film-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'><br>Los vengadores</span>
-                  </a></span>
-                </div>
--->
+              
             </div>
 
 

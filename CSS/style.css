@@ -44,7 +44,7 @@ div.container-fluid {
 }
 
 div.row-content {
-    margin-left: 10%;
+    /*margin-left: 10%;*/
     padding: 15px;
     overflow: visible;
 }
@@ -63,8 +63,8 @@ div.row-content {
 }
 
 div.main-content {
-    margin-left: 150px;
-    margin-right: 150px;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-bottom: 3em;
     padding-top: 0%;
     padding-bottom: 30px;
@@ -185,7 +185,8 @@ button.btn {
 /**/
 
 .divLogin {
-    margin-left: 10em;
+    margin-left: 20%;
+    /*margin-right: 10%;*/
     margin-bottom: 3em;
     padding-bottom: 5em;
 }
@@ -215,7 +216,7 @@ div.LogInput{
 /**/
 
 div.margin-top5em{
-    margin-top: 5em;
+    margin-top: 2em;
 }
 
 .center{
