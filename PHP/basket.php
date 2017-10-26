@@ -11,8 +11,8 @@ session_start();
                     <div class="margin-top5em">
                         <div class="center">
                             <h2>Carrito</h2>
-                        
-                        <?php 
+
+                        <?php
                         $total = 0;
                         if(!isset($_SESSION["basketNitems"])){
                             echo "<h>No hay articulos</h3>";
@@ -33,38 +33,11 @@ session_start();
                                 echo "<td>$pelicula->precio €</td>";
                                 echo "</tr>";
                             }
-                            
+
                             echo "</table>";
                         }
                         ?>
-                        <!--
-                        <tr>"
-                            <td><img class="mini-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'></td>
-                            <td>Los vengadores</td>
-                            <td>10€</td>
-                        </tr>
-                        <tr>
-                            <td><img class="mini-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'></td>
-                            <td>Los vengadores</td>
-                            <td>10€</td>
-                        </tr>
-                        <tr>
-                            <td><img class="mini-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'></td>
-                            <td>Los vengadores</td>
-                            <td>10€</td>
-                        </tr>
-                        <tr>
-                            <td><img class="mini-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'></td>
-                            <td>Los vengadores</td>
-                            <td>10€</td>
-                        </tr>
-                        <tr>
-                            <td><img class="mini-image" src="../media/img/TheAvengers2012Poster.jpg" alt='Avengers'></td>
-                            <td>Los vengadores</td>
-                            <td>10€</td>
-                        </tr>
 
-                    </table> -->
                     <h3 class="basket-total"> Total: <?php echo $total; ?>€ </h3>
                     <a class="login" href="index-logged.html">Confirmar</a>
                         </div>
