@@ -24,8 +24,8 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
+        <id>3</id>
+        <titulo>Los Vengadores 2</titulo>
         <generos>
           <genero>Aventuras</genero>
           <genero>Superheroes</genero>
@@ -36,8 +36,8 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
+        <id>4</id>
+        <titulo>Los Vengadores 3</titulo>
         <generos>
           <genero>Aventuras</genero>
           <genero>Superheroes</genero>
@@ -48,8 +48,8 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
+        <id>5</id>
+        <titulo>Los Vengadores 4</titulo>
         <generos>
           <genero>Aventuras</genero>
           <genero>Superheroes</genero>
@@ -60,8 +60,8 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
+        <id>6</id>
+        <titulo>Los Vengadores 5</titulo>
         <generos>
           <genero>Aventuras</genero>
           <genero>Superheroes</genero>
@@ -72,8 +72,8 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
+        <id>7</id>
+        <titulo>Los Vengadores 6</titulo>
         <generos>
           <genero>Aventuras</genero>
           <genero>Superheroes</genero>
