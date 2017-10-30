@@ -15,36 +15,79 @@ session_start();
 
                       <?php
                       $total = 0;
-                      $historial = simplexml_load_file("../XML/hitorial.xml");
+                      $historial = simplexml_load_file("../XML/historial.xml");
                       echo "<table class=\"center\">";
                       echo "<tr>";
                       echo "<th colspan=\"2\">Fecha </th>";
                       echo "</tr>";
                       foreach ($historial->Fecha as $day){
                         echo "<tr>";
-                        echo "<td>$day</td>";
+                        echo "<td>$day->date</td>";
                         echo "<td>DESPLEGAR</td>";
                         echo "</tr>";
 
 
                         #dentro del tr generamos la tabla nueva
                         echo "<tr>";
-                          echo "<table >";
+                          echo "<table class=\"center\">";
+                          $catalogo = simplexml_load_file("../XML/catalogo.xml");
+                          foreach ($day->pelicula as $p) {
+
+                            $titulo = $catalogo->xpath("/catalogo/pelicula[id=\"$p->id\"]");
+
+                            echo "<tr>";
+                            echo "<td >$titulo</td>";
+                            echo "<td >$p->precio</td>";
+                            echo "</tr>";
+                          }
+                          echo "</table>";
+                        echo "</tr>";
+                      }
+                      echo "</table>";
+                      ?>
+
+                      <?php
+                      /*
+                      echo "<table class=\"center\">";
+                      echo "<tr>";
+                      echo "<th colspan=\"2\">Fecha </th>";
+                      echo "</tr>";
+                      echo "<tr>";
+                      echo "<td>hola</td>";
+                      echo "<td>adios</td>";
+                      echo "</tr>";
+
+
+                      echo "<tr>";
+                          echo "<table class=\"center\">";
                           echo "<tr>";
-                          echo "<th>$day->date </th>";
-                          echo "<th>DESPLEGAR</th>";
+                          echo "<th colspan=\"2\">Fecha </th>";
                           echo "</tr>";
-                        echo "<tr>";
-                        foreach ($day->peli as $p) {
+                          echo "<tr>";
+                          echo "<td>hola</td>";
+                          echo "<td>adios</td>";
+                          echo "</tr>";
 
                           echo "<tr>";
-                          echo "<td>$p->titulo</td>";
-                          echo "<td>$p->precio</td>";
+                              echo "<table class=\"center\">";
+                              echo "<tr>";
+                              echo "<th colspan=\"2\">Fecha </th>";
+                              echo "</tr>";
+                              echo "<tr>";
+                              echo "<td>hola</td>";
+                              echo "<td>adios</td>";
+                              echo "</tr>";
+                              echo "</table>";
                           echo "</tr>";
-                        }
-                        echo "</table>";
-                      }
+
+
+                          echo "</table>";
+                      echo "</tr>";
+
+                      echo "</table>";
+                      */
                       ?>
+
 
                   <h3 class="basket-total"> Total: <?php echo $total; ?>€ </h3>
                   <a class="login" href="index-logged.html">Confirmar</a>
