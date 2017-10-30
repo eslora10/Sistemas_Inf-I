@@ -21,19 +21,18 @@ session_start();
                       echo "<th colspan=\"2\">Fecha </th>";
                       echo "</tr>";
                       foreach ($historial->Fecha as $day){
-                        echo "<tr>";
-                        echo "<td>$day->date</td>";
-                        echo "<td>DESPLEGAR</td>";
+                        echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
+                        echo "<td><a class=\"desplegar\">$day->date</a></td>";
                         echo "</tr>";
 
-
                         #dentro del tr generamos la tabla nueva
-                        echo "<tr>";
+                        echo "<tr class=\"prueba\">";
+                        echo "<td colspan=\"2\">";
                           echo "<table class=\"center\">";
                           $catalogo = simplexml_load_file("../XML/catalogo.xml");
                           foreach ($day->pelicula as $p) {
 
-                            $titulo = $catalogo->xpath("/catalogo/pelicula[id=\"$p->id\"]");
+                            $titulo = $catalogo->xpath("/catalogo/pelicula[id=\"$p->id\"]/titulo");
 
                             echo "<tr>";
                             echo "<td >$titulo</td>";
@@ -41,14 +40,15 @@ session_start();
                             echo "</tr>";
                           }
                           echo "</table>";
+                        echo "</td>";
                         echo "</tr>";
                       }
                       echo "</table>";
                       ?>
 
                       <?php
-                      /*
-                      echo "<table class=\"center\">";
+
+                     /* echo "<table class=\"center\">";
                       echo "<tr>";
                       echo "<th colspan=\"2\">Fecha </th>";
                       echo "</tr>";
@@ -85,7 +85,7 @@ session_start();
                       echo "</tr>";
 
                       echo "</table>";
-                      */
+*/
                       ?>
 
 
@@ -97,5 +97,9 @@ session_start();
         </div>
         <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
 
+
+        <script>
+        $( ".desplegar" ).closest("tr").nextAll( ".prueba" ).css('background', 'yellow');
+        </script>
 
 </body></html>
