@@ -56,18 +56,6 @@ $(document).ready(function() {
       });
     });
 
-/*works fine????????
-    $(document).ready(function(){
-      if( $("#ccard").isNumeric() ==false){
-       $("#errorCcard").show();
-       return false;
-      }
-
-
-
-    });
-
-*/
    function calcScore(pass) {
      var score = 0;
      if (!pass)
@@ -119,6 +107,15 @@ $(document).ready(function() {
             //usamos sintaxis JS por que JQ daba error
             var meter = document.getElementById('scoreMeter');
             meter.value=score*0.01
+
+        });
+    });
+
+    $(document).ready(function(){
+        $('.desplegar').on("keypress keyup keydown", function(ev) {
+           ev.preventDefault();
+           $(this).closest('tr').nextAll('.prueba').css('background', 'red');
+
 
         });
     });
