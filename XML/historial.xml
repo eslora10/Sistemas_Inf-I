@@ -35,20 +35,6 @@
 	<id>7</id>
 	<precio>10</precio>
 </pelicula>
-<pelicula>
-	<id>8</id>
-	<precio>10</precio>
-</pelicula>
 </Fecha>
-<Fecha>
-<date>2017-02-07</date>
-<pelicula>
-	<id>9</id>
-	<precio>10</precio>
-</pelicula>
-<pelicula>
-	<id>10</id>
-	<precio>10</precio>
-</pelicula>
-</Fecha>
+
 </historial>
