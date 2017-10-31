@@ -299,5 +299,14 @@ h3.basket-total {
 
 .prueba{
 
-  /*display: none;*/
+  display: none;
+}
+
+table.minicenter{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
