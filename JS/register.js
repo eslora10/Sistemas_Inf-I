@@ -112,10 +112,16 @@ $(document).ready(function() {
     });
 
     $(document).ready(function(){
-        $('.desplegar').on("keypress keyup keydown", function(ev) {
+        $('.desplegar').on("click", function(ev) {
            ev.preventDefault();
-           $(this).closest('tr').nextAll('.prueba').css('background', 'red');
+           if ($(this).closest('tr').next('.prueba').is(':visible')){
+              $(this).closest('tr').next('.prueba').hide();
 
+          }
+
+          else{
+              $(this).closest('tr').next('.prueba').show();
+          }
 
         });
     });
