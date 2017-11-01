@@ -293,7 +293,12 @@ h3.basket-total {
     text-align: right;
     margin-right: 15%;
 }
-
+#concurrent {
+    float: right;
+}
+.authors {
+    float: left;
+}
 .error{
   color: red;
 }
@@ -317,6 +322,10 @@ h3.basket-total {
     float: left;
     height: 34px;
     margin-right: 0.5em;
+}
+
+i.fa-times:hover{
+    color: red;
 }
 
 .prueba{

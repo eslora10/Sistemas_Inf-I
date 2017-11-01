@@ -18,6 +18,7 @@ session_start();
                             ?>
                             <h2>Carrito</h2>
 
+
                         <?php
                         $_SESSION["total_basket"] = 0;
                         if(!isset($_SESSION["basketNitems"]) || !$_SESSION["basketNitems"]){

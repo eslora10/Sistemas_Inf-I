@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<catalogo>
+<catalogo> 
     <pelicula>
         <id>1</id>
         <titulo>Los Vengadores</titulo>
@@ -23,6 +23,7 @@
         <director>Gore Verbinski</director>
         <sinopsis>Para el pícaro y seductor Capitán Jack Sparrow (Johnny Depp), las cristalinas aguas del Caribe, al igual que todos los mares del mundo, representan un gigantesco escenario lleno de misterio y aventuras.</sinopsis>
         <precio>8</precio>
+<<<<<<< HEAD
     </pelicula>
     <pelicula>
         <id>3</id>
@@ -46,5 +47,7 @@
         <director>Esther Lopez</director>
         <sinopsis>Wonder Woman se une al universo cinematografico de DC.</sinopsis>
         <precio>15</precio>
+=======
+>>>>>>> 9c2d7adba43f0c271e5758b8a4985659ed219dcb
     </pelicula>
 </catalogo>

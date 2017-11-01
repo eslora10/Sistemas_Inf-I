@@ -31,7 +31,7 @@ if(!isset($_SESSION["saldo"])){
         
         /*Comprobamos si ya existe una pelicula con el id*/
         if($pelicula = $historial->xpath("/historial/fecha/pelicula[id=\"$item\"]")[0]){
-            $pelicula->uds++;
+            $pelicula->uds+=$uds;
             $pelicula->precio = $precio*$pelicula->uds;
         } else {
             $pelicula = $fecha->addChild("pelicula");
