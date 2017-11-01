@@ -1,5 +1,6 @@
 <?php
 session_start();
+$nick=$_SESSION["nick"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,12 +15,12 @@ session_start();
                           <h2>Historial</h2>
 
                       <?php
-                      $historial = simplexml_load_file("../XML/historial.xml");
+                      $historial = simplexml_load_file("../usuarios/$nick/historial.xml");
                       echo "<table class=\"center\">";
                       echo "<tr>";
                       echo "<th >Fecha </th>";
                       echo "</tr>";
-                      foreach ($historial->Fecha as $day){
+                      foreach ($historial->fecha as $day){
                         echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
                         echo "<td>$day->date <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
                         echo "</tr>";
@@ -31,7 +32,7 @@ session_start();
                           echo "<tr>";
                           echo "<th >Titulo </th>";
                           echo "<th >Unidades </th>";
-                          echo "<th >Precio Total </th>";
+                          echo "<th >Precio </th>";
                           echo "</tr>";
                           $catalogo = simplexml_load_file("../XML/catalogo.xml");
                           foreach ($day->pelicula as $p) {
@@ -66,5 +67,6 @@ session_start();
           </div>
         </div>
         <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
+        <?php include("includeFooter.php") ?>
 
 </body></html>
