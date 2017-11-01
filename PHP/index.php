@@ -25,7 +25,7 @@ session_start();
                     if (isset($_REQUEST['search']) && strcmp($_REQUEST['search'], "")){
                         /*Seleccionamos solo las peliculas que coincidan con la busqueda*/
                         $search = $_REQUEST['search'];
-                        $peliculas = $catalogo->xpath("/catalogo/pelicula[contains(lower-case(titulo), lower-case('$search') and generos/genero=\"$genero\"]");
+                        $peliculas = $catalogo->xpath("/catalogo/pelicula[contains(titulo, '$search') and generos/genero=\"$genero\"]");
                         /*translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')*/
                     }
                     if(count($peliculas) >0 ){
