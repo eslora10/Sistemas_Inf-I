@@ -47,4 +47,49 @@
         <sinopsis>Wonder Woman se une al universo cinematografico de DC.</sinopsis>
         <precio>15</precio>
     </pelicula>
+    <pelicula>
+        <id>5</id>
+        <titulo>annabelle</titulo>
+        <generos>
+          <genero>Thriller</genero>
+        </generos>
+        <poster>../media/img/annabelle.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Pelicula de miedo anabelle</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>6</id>
+        <titulo>gru</titulo>
+        <generos>
+          <genero>Infantil</genero>
+        </generos>
+        <poster>../media/img/gru.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Gru, tu villano favorito esta de vuelta.</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>7</id>
+        <titulo>La casa de la esperanza</titulo>
+        <generos>
+          <genero>Drama</genero>
+        </generos>
+        <poster>../media/img/laCasaDeLaEsperanza.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Basada en una historia real</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>7</id>
+        <titulo>Los mundos de Caroline</titulo>
+        <generos>
+          <genero>Infantil</genero>
+          <genero>Comedia</genero>
+        </generos>
+        <poster>../media/img/losMundosDeCaroline.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Basada en una historia real</sinopsis>
+        <precio>11</precio>
+    </pelicula>
 </catalogo>
