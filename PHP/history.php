@@ -28,6 +28,11 @@ session_start();
                         echo "<tr class=\"prueba\">";
                         echo "<td >";
                           echo "<table class='minicenter'>";
+                          echo "<tr>";
+                          echo "<th >Titulo </th>";
+                          echo "<th >Unidades </th>";
+                          echo "<th >Precio Total </th>";
+                          echo "</tr>";
                           $catalogo = simplexml_load_file("../XML/catalogo.xml");
                           foreach ($day->pelicula as $p) {
 
@@ -35,6 +40,7 @@ session_start();
 
                             echo "<tr>";
                             echo "<td >$titulo</td>";
+                            echo "<td >$p->uds</td>";
                             echo "<td >$p->precio</td>";
                             echo "</tr>";
                           }
@@ -46,9 +52,17 @@ session_start();
                       ?>
 
                   <h3 class="basket-total"> Saldo disponible: <?php echo $_SESSION['saldo']; ?>€ </h3>
-                  <a class="login" href="index-logged.html">Confirmar</a>
-                      </div>
+
+                  <form action="historySaldo.php" METHOD=post>
+                    <div class="header-form">
+                    <h3>Añadir saldo:
+                        <input class="add_saldo" type="number" name="add_saldo" required><input class="add_saldo-btn" type="submit" value="Añadir"></h3>
+                    </div>
+
+                  </form>
                   </div>
+
+
           </div>
         </div>
         <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
