@@ -332,3 +332,7 @@ table.minicenter{
     margin-left: auto;
     margin-right: auto;
 }
+
+i.fa-times:hover{
+    color: red;
+}
