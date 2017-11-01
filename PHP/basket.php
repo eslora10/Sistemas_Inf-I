@@ -10,15 +10,16 @@ session_start();
             <div class="main-content">
                     <div class="margin-top5em">
                         <div class="center">
-                            <?php 
+                            <?php
                             if(isset($_REQUEST["sell"]) && $_REQUEST["sell"] == 0){
                                 $saldo = $_SESSION["saldo"];
                                 echo "<h3>Saldo insuficiente: $saldo €</h3>";
                             }
                             ?>
                             <h2>Carrito</h2>
-                        
-                        <?php 
+
+
+                        <?php
                         $_SESSION["total_basket"] = 0;
                         if(!isset($_SESSION["basketNitems"]) || !$_SESSION["basketNitems"]){
                             echo "<h>No hay articulos</h3>";
@@ -43,9 +44,9 @@ session_start();
                                 echo "<td>". $pelicula->precio * $uds. "€</td>";
                                 echo "</tr>";
                             }
-                            
+
                             echo "</table>";
-                            
+
                             echo "<h3 class=\"basket-total\"> Total:". $_SESSION["total_basket"]. " € </h3>";
                             echo "<a class=\"login\" href=\"basket-check.php\">Confirmar</a>";
                         }

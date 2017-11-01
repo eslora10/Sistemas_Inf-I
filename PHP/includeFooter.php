@@ -1,5 +1,4 @@
-<script src="../JS/register.js">
-</script>
+<script src="../JS/register.js"></script>
 
 <footer>
     <p class="authors">Antonio Amor, Esther López, Sistemas Informáticos</p>
