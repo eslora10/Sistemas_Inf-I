@@ -13,78 +13,6 @@
         <precio>10</precio>
     </pelicula>
     <pelicula>
-        <id>1</id>
-        <titulo>Los Vengadores</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
-        <id>3</id>
-        <titulo>Los Vengadores 2</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
-        <id>4</id>
-        <titulo>Los Vengadores 3</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
-        <id>5</id>
-        <titulo>Los Vengadores 4</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
-        <id>6</id>
-        <titulo>Los Vengadores 5</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
-        <id>7</id>
-        <titulo>Los Vengadores 6</titulo>
-        <generos>
-          <genero>Aventuras</genero>
-          <genero>Superheroes</genero>
-        </generos>
-        <poster>../media/img/TheAvengers2012Poster.jpg</poster>
-        <director>Joss Whedon</director>
-        <sinopsis>Nick Fury, director de la organización de mantenimiento de la paz conocida como S.H.I.E.L.D., recluta a Iron Man, Hulk, Thor, y al Capitán América para formar un equipo. El grupo debe detener al hermano de Thor, Loki, para evitar la destrucción del planeta. </sinopsis>
-        <precio>10</precio>
-    </pelicula>
-    <pelicula>
         <id>2</id>
         <titulo>Piratas del Caribe: La maldicion de la Perla Negra</titulo>
         <generos>
@@ -95,5 +23,28 @@
         <director>Gore Verbinski</director>
         <sinopsis>Para el pícaro y seductor Capitán Jack Sparrow (Johnny Depp), las cristalinas aguas del Caribe, al igual que todos los mares del mundo, representan un gigantesco escenario lleno de misterio y aventuras.</sinopsis>
         <precio>8</precio>
+    </pelicula>
+    <pelicula>
+        <id>3</id>
+        <titulo>La Momia</titulo>
+        <generos>
+          <genero>Aventuras</genero>
+        </generos>
+        <poster>../media/img/laMomia.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Rebut de la momia.</sinopsis>
+        <precio>15</precio>
+    </pelicula>
+    <pelicula>
+        <id>4</id>
+        <titulo>Wonder Woman</titulo>
+        <generos>
+          <genero>Aventuras</genero>
+          <genero>Superheroes</genero>
+        </generos>
+        <poster>../media/img/wonderWoman.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Wonder Woman se une al universo cinematografico de DC.</sinopsis>
+        <precio>15</precio>
     </pelicula>
 </catalogo>
