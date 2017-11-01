@@ -122,3 +122,18 @@ $(document).ready(function() {
 
         });
     });
+
+    $(document).ready(function() {
+        function concurrentUsers(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) { 
+                    $("#concurrent").text(xhttp.responseText); 
+                }
+            }
+            xhttp.open("GET", "concurrent-users.php", true);
+            xhttp.send();
+        }
+        setInterval(concurrentUsers, 3000);
+
+    });
