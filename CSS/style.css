@@ -296,3 +296,7 @@ h3.basket-total {
     height: 34px;
     margin-right: 0.5em;
 }
+
+i.fa-times:hover{
+    color: red;
+}

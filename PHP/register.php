@@ -54,7 +54,14 @@ if(isset($_REQUEST["f_sent"])){
             $c_pass = md5($password);
             $saldo = rand(0, 100);
             fwrite($fdata, "$nick\n$c_pass\n$email\n$ccard\n$saldo");
-            setcookie("nick", $nick, time() + 60*60);
+            $fdata = fopen("../usuarios/$nick/historial.xml", "w");
+            /*Se crea el historial sin elementos*/
+            fwrite($fdata, "<historial></historial>");
+            /*inicio de sesion y de cookie*/
+            session_start();
+            $_SESSION['nick'] = $nick;
+            $_SESSION['saldo'] = $saldo;
+            setcookie("nick", $nick, time() + 60*60);            
             header("Location: index.php");
         } else {
             $msg_nick = "Error al crear usuario";

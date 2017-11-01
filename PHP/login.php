@@ -1,10 +1,4 @@
 <?php
-session_start();
-if(isset($_SESSION['nick'])){
-    unset($_SESSION['nick']);
-    unset($_SESSION['saldo']);
-    session_destroy();
-}
 if (isset($_REQUEST["f_sent"])){
     /*El formulario ha sido enviado, hacemos las comprobaciones pertinentes*/
 
@@ -45,7 +39,10 @@ if (isset($_REQUEST["f_sent"])){
         $_SESSION['nick'] = $nick;
         $_SESSION['saldo'] = $saldo;
         setcookie("nick", $nick, time() + 60*60);
-        header("Location: index.php");
+        if(isset($_SESSION["from_basket"]))
+             header("Location: basket.php");
+        else 
+            header("Location: index.php");
     }
 }
 ?>
