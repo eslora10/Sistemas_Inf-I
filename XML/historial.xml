@@ -1,40 +1,29 @@
 <historial>
 <Fecha>
 <date>2017-01-01</date>
-<pelicula>
-	<id>1</id>
-	<precio>10</precio>
-</pelicula>
-<pelicula>
-	<id>2</id>
-	<precio>10</precio>
-</pelicula>
-<pelicula>
-	<id>3</id>
-	<precio>10</precio>
-</pelicula>
-<pelicula>
-	<id>4</id>
-	<precio>10</precio>
-</pelicula>
-</Fecha>
-<Fecha>
-<date>2017-12-12</date>
-<pelicula>
-	<id>5</id>
-	<precio>10</precio>
-</pelicula>
-<pelicula>
-	<id>6</id>
-	<precio>10</precio>
-</pelicula>
+	<pelicula>
+		<id>1</id>
+		<uds>2</uds>
+		<precio>10</precio>
+	</pelicula>
+	<pelicula>
+		<id>2</id>
+		<uds>3</uds>
+		<precio>10</precio>
+	</pelicula>
+	<pelicula>
+		<id>3</id>
+		<uds>1</uds>
+		<precio>10</precio>
+	</pelicula>
 </Fecha>
 <Fecha>
 <date>2017-05-02</date>
-<pelicula>
-	<id>7</id>
-	<precio>10</precio>
-</pelicula>
+	<pelicula>
+		<id>2</id>
+		<uds>1</uds>
+		<precio>10</precio>
+	</pelicula>
 </Fecha>
 
 </historial>
