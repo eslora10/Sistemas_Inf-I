@@ -7,7 +7,6 @@ $nick=$_SESSION["nick"];
     <?php include("includeHead.php") ?>
     <body>
       <?php include("includeHeader.php") ?>
-    <body>
         <div class="container-fluid">
           <div class="main-content">
                   <div class="margin-top5em">
@@ -66,7 +65,7 @@ $nick=$_SESSION["nick"];
 
           </div>
         </div>
-        <footer>Antonio Amor, Esther López, Sistemas Informáticos</footer>
+        </div>
         <?php include("includeFooter.php") ?>
 
 </body></html>

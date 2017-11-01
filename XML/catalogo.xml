@@ -81,15 +81,15 @@
         <precio>11</precio>
     </pelicula>
     <pelicula>
-        <id>7</id>
-        <titulo>Los mundos de Caroline</titulo>
+        <id>8</id>
+        <titulo>Los mundos de Coraline</titulo>
         <generos>
           <genero>Infantil</genero>
           <genero>Comedia</genero>
         </generos>
         <poster>../media/img/losMundosDeCaroline.jpg</poster>
         <director>Esther Lopez</director>
-        <sinopsis>Basada en una historia real</sinopsis>
+        <sinopsis>Coraline Jones se aburre hasta que encuentra una puerta secreta y descubre al otro lado una versión alternativa y mejor de su vida. </sinopsis>
         <precio>11</precio>
     </pelicula>
 </catalogo>
