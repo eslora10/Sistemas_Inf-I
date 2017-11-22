@@ -161,7 +161,11 @@ ALTER TABLE orders ADD CONSTRAINT orders_customerid_fkey FOREIGN KEY (customerid
 --Hasta ahora en nuestra web el username, deberia ser unico, no obstante en esta bd hay muchos username duplicados
 --asumimos que a partir de ahora se queda asi o borramos duplicados?
 
-
+CREATE TABLE alertas(
+prod_id integer NOT NULL,
+msg varchar NOT NULL,
+CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
+);
 
 
 
