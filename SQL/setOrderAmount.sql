@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION setOrderAmount() RETURNS void AS $$
+﻿CREATE OR REPLACE FUNCTION setOrderAmount() RETURNS void AS $$
 DECLARE
 	valores record;
 BEGIN
@@ -13,3 +13,5 @@ BEGIN
 	END LOOP;
 END;
 $$ LANGUAGE plpgsql;
+
+SELECT setOrderAmount();
