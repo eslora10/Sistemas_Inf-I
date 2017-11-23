@@ -157,9 +157,6 @@ ALTER TABLE orders ADD CONSTRAINT orders_customerid_fkey FOREIGN KEY (customerid
 	REFERENCES public.customers(customerid) MATCH SIMPLE
 	ON UPDATE CASCADE ON DELETE CASCADE;
 
-
---Hasta ahora en nuestra web el username, deberia ser unico, no obstante en esta bd hay muchos username duplicados
---asumimos que a partir de ahora se queda asi o borramos duplicados?
 --CAMBIOS PARA LA TABLA CUSTOMERS
 --Eliminacion de duplicados en el username
 DELETE FROM customers
@@ -168,6 +165,7 @@ WHERE customerid IN (SELECT customerid
                              ROW_NUMBER() OVER (partition BY username ORDER BY customerid) AS rnum
                      FROM customers) t
               WHERE t.rnum > 1);
+--Quitamos el NULL de todos los campos que no utiliza nuestra web
 ALTER TABLE customers ALTER address1 DROP NOT NULL;
 ALTER TABLE customers ALTER city DROP NOT NULL;
 ALTER TABLE customers ALTER country DROP NOT NULL;
@@ -175,6 +173,17 @@ ALTER TABLE customers ALTER region DROP NOT NULL;
 ALTER TABLE customers ALTER creditcardtype DROP NOT NULL;
 ALTER TABLE customers ALTER creditcardexpiration DROP NOT NULL;
 ALTER TABLE customers ALTER income SET NOT NULL;
---FALTA UNIQUE EN username
+ALTER TABLE customers ADD CONSTRAINT customers_unique_username UNIQUE(username);
+--Cambio de las contraseñas a md5
+UPDATE customers SET password=md5(password);
+
+--Creacion de tabla de alertas para el trigger de updInventory
+CREATE TABLE alertas(
+prod_id integer NOT NULL,
+msg varchar NOT NULL,
+CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
+);
+
+
 
 
