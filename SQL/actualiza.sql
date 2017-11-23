@@ -138,7 +138,7 @@ CREATE TABLE sum_quantity(
   CONSTRAINT sum_quantity_pkey PRIMARY KEY (orderid, prod_id),
   CONSTRAINT sum_quantity_orderid_fkey FOREIGN KEY (orderid) 
 	REFERENCES public.orders (orderid) MATCH SIMPLE
-	ON UPDATE CASCADE ON DELETE NO ACTION,
+	ON UPDATE CASCADE ON DELETE CASCADE,
   CONSTRAINT sum_quantity_prod_id_fkey FOREIGN KEY (prod_id)
 	REFERENCES public.products (prod_id) MATCH SIMPLE 
 	ON UPDATE CASCADE ON DELETE NO ACTION
@@ -155,13 +155,26 @@ ALTER TABLE sum_quantity RENAME TO orderdetail;
 --Falta la FK para customerid
 ALTER TABLE orders ADD CONSTRAINT orders_customerid_fkey FOREIGN KEY (customerid)
 	REFERENCES public.customers(customerid) MATCH SIMPLE
-	ON UPDATE CASCADE ON DELETE NO ACTION;
+	ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --Hasta ahora en nuestra web el username, deberia ser unico, no obstante en esta bd hay muchos username duplicados
 --asumimos que a partir de ahora se queda asi o borramos duplicados?
-
-
-
+--CAMBIOS PARA LA TABLA CUSTOMERS
+--Eliminacion de duplicados en el username
+DELETE FROM customers
+WHERE customerid IN (SELECT customerid
+              FROM (SELECT customerid,
+                             ROW_NUMBER() OVER (partition BY username ORDER BY customerid) AS rnum
+                     FROM customers) t
+              WHERE t.rnum > 1);
+ALTER TABLE customers ALTER address1 DROP NOT NULL;
+ALTER TABLE customers ALTER city DROP NOT NULL;
+ALTER TABLE customers ALTER country DROP NOT NULL;
+ALTER TABLE customers ALTER region DROP NOT NULL;
+ALTER TABLE customers ALTER creditcardtype DROP NOT NULL;
+ALTER TABLE customers ALTER creditcardexpiration DROP NOT NULL;
+ALTER TABLE customers ALTER income SET NOT NULL;
+--FALTA UNIQUE EN username
 
 

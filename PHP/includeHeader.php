@@ -36,14 +36,18 @@
     <form class="input-group" method="get" action="index.php">
         <input type=submit class="input-group-btn">
         <select class="select-header" name="genre">
-            <option value="Todos" selected>Todos</option>
-            <option value="Accion">Accion</option>
-            <option value="Aventuras">Aventuras</option>
-            <option value="Thriller">Thriller</option>
-            <option value="Comedia">Comedia</option>
-            <option value="Drama">Drama</option>
-            <option value="Infantil">Infantil</option>
-            <option value="Superheroes">Superheroes</option>
+            <option value="All" selected>All</option>"
+            <?php 
+            /*Conexion con la base de datos*/
+            try {
+                $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
+                $query = "SELECT genrename FROM genres";
+                foreach ($database->query($query) as $genre)
+                    echo "<option value=\"".$genre['genrename']."\">".$genre['genrename']."</option>";
+            } catch (PDOException $e) {
+            }
+
+           ?>
         </select>
         <div class="header-form">
         <input type="text" class="form-control" name="search">
