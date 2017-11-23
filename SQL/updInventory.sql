@@ -29,5 +29,12 @@ $$LANGUAGE 'plpgsql';
 DROP TRIGGER IF EXISTS t_updateInventory ON orders;
 CREATE TRIGGER t_updateInventory AFTER UPDATE ON orders
 FOR EACH ROW 
-WHEN (OLD.status IS DISTINCT FROM NEW.status)
+WHEN (OLD.status IS NULL)
 EXECUTE PROCEDURE updateInventory();
+
+
+Select * from inventory Where prod_id = 1014
+
+UPDATE orders SET status = 1 where orderid=1
+
+SELECT * from orders where orderid=1
