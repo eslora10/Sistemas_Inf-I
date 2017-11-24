@@ -33,29 +33,29 @@ if (isset($_REQUEST["f_sent"])){
         $msg_password = "email obligatorio";
         $err = 1;
     }
-        /*Aqui deberiamos comprobar que el email y la contraseña coinciden*/
-        $sql = "SELECT email, username FROM customers WHERE email='$email'";
-        foreach ($db->query($sql) as $row) {
-          if($email != $row['email']){
-            $err=1;
-            $msg_email = "El usuario no existe";
+    /*Aqui deberiamos comprobar que el email y la contraseña coinciden*/
+    $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
+    foreach ($db->query($sql) as $rowUser) {
+      if($email != $rowUser['email']){
+        $err=1;
+        $msg_email = "El usuario no existe";
+      }else{
+          /*comprobar contraseña*/
+          if($password!=$rowUser['password']){
+              $err=1;
+              $msg_password = "La contraseña es incorrecta";
+          }else{
+              /*todo ok*/
+              $nick=$rowUser['username'];
+              $_SESSION['nick'] = $nick;
           }
-          /*caso ok*/
-          $_SESSION['nick']=$row['username'];
-
-        }
-        $sql = "SELECT password FROM customers WHERE email='$email'";
-        foreach ($db->query($sql) as $row) {
-          if($password != $row['password']){
-            $err=1;
-            $msg_password = "La contaseña no es correcta";
-          }
-        }
+      }
+    }
     if($err != 1){
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['saldo'] = $saldo;
-        setcookie("nick", $email, time() + 60*60);/*quizas sea $nick*/
+        setcookie("nick", $email, time() + 60*60);
         if(isset($_SESSION["from_basket"]))
              header("Location: basket.php");
         else
