@@ -173,7 +173,7 @@ ALTER TABLE customers ALTER email SET NOT NULL;
 ALTER TABLE customers ADD CONSTRAINT customers_unique_username UNIQUE(email);
 --Cambio de las contraseñas a md5
 UPDATE customers SET password=md5(password);
-SELECT setval('customers_customerid_seq', (SELECT customerid FROM customers ORDER BY customerid DESC LIMIT 1)+1, FALSE)
+SELECT setval('customers_customerid_seq', (SELECT customerid FROM customers ORDER BY customerid DESC LIMIT 1)+1, FALSE);
 
 --Creacion de tabla de alertas para el trigger de updInventory
 CREATE TABLE alertas(
@@ -181,7 +181,6 @@ prod_id integer NOT NULL,
 msg varchar NOT NULL,
 CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
 );
-
 
 
 
