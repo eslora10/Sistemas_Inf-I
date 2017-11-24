@@ -33,34 +33,37 @@ session_start();
                     echo "</span>";                    
                 }
                 echo "</div>";
-                /*Cargamos el catalogo*/
-                $catalogo = simplexml_load_file("../XML/catalogo.xml");
                 if(isset($_REQUEST['genre']) && strcmp($_REQUEST['genre'], "All")){
                     /*el usuario hace una busqueda*/
-                    $generos = array($_REQUEST['genre']);
+                    $genre['genrename'] = $_REQUEST['genre'];
+                    $generos = array($genre);
                 } else {
                     /*Seleccionamos todos los generos posibles*/
-                    $generos = array_unique($catalogo->xpath('/catalogo/pelicula/generos/genero'));
+                    $query = "SELECT genrename FROM genres";
+                    $generos = $database->query($query);
                 }
+    
                 /*Por cada genero, hacemos un row*/
                 foreach ($generos as $genero){
                     /*Por cada pelicula, creamos una tarjeta*/
-                    $peliculas = $catalogo->xpath("/catalogo/pelicula[generos/genero=\"$genero\"]");
                     if (isset($_REQUEST['search']) && strcmp($_REQUEST['search'], "")){
                         /*Seleccionamos solo las peliculas que coincidan con la busqueda*/
                         $search = $_REQUEST['search'];
-                        $peliculas = $catalogo->xpath("/catalogo/pelicula[contains(titulo, '$search') and generos/genero=\"$genero\"]");
-                        /*translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')*/
+                        $query = "SELECT movieid, movietitle FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL_JOIN genres WHERE genrename='".$genero['genrename']."' AND movietitle ILIKE('".$search."%')";
+                    } else {
+                        $query = "SELECT * FROM getMoviesByGenre(".$genero['genrename'].")";
                     }
+                    $peliculas = $database->query($query);
+                    print_r($peliculas);
                     if(count($peliculas) >0 ){
                         echo "<div class=\"row-content\">";
-                        echo "<h1 class=\"tittleRow\">$genero</h1>";
+                        echo "<h1 class=\"tittleRow\">".$genero['genrename']."</h1>";
                         foreach ($peliculas as $pelicula){
                             echo "<span>";
-                            echo "<a href=\"film-detail.php?film=$pelicula->id\" class=\"film-card\">";
+                            echo "<a href=\"film-detail.php?film=\"".$pelicula['id']."\" class=\"film-card\">";
                             echo "<span>";
-                            echo "<img class=\"film-image\" src=\"$pelicula->poster\" alt='$pelicula->titulo'><br>";
-                            echo "$pelicula->titulo";
+                            echo "<img class=\"film-image\" src=\"".$pelicula['id'].".jpg\" alt='".$pelicula['movietitle']."'><br>";
+                            echo $pelicula['movietitle'];
                             echo "</span>";
                             echo "</a>";
                             echo "</span>";
