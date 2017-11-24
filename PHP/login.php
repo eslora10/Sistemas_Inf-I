@@ -21,49 +21,40 @@ if (isset($_REQUEST["f_sent"])){
     $err = 0;
     if(isset($_REQUEST["email"])){
         $email = $_REQUEST["email"];
-        $msg_email = "";
     } else {
         $msg_email = "email obligatorio";
         $err = 1;
     }
     if(isset($_REQUEST["password"])){
         $password = $_REQUEST["password"];
-        $msg_password = "";
     } else {
         $msg_password = "password obligatoria";
         $err = 1;
     }
     /*Aqui deberiamos comprobar que el email y la contraseña coinciden*/
-    $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
-
-    foreach ( $db->query($sql) as $rowUser) {
-      if($email!==$rowUser['email']){
-        $err=1;
-        $msg_email = "El email no existe";
-      }else{
+    if($err != 1){
+        $sql = "SELECT email, username, password, income FROM customers WHERE email='$email'";
+        $res = $db->query($sql);
+        foreach ( $res as $rowUser) {
           /*comprobar contraseña*/
           if(strcmp((string)md5($password),(string)$rowUser['password'])!==0){
-              $err=1;
               $msg_password = "La contraseña es incorrecta";
           }else{
-              /*login OK*/
+            /*login OK*/
               $nick=$rowUser['username'];
               $_SESSION['nick'] = $nick;
-
+              $_SESSION['saldo'] = $rowUser['income'];
               /*comprobamos la existencia de un carrito*/
-              $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
-          }
-      }
-    }
-    if($err != 1){
-        session_start();
-        $_SESSION['email'] = $email;
-        $_SESSION['saldo'] = $saldo;
-        setcookie("nick", $email, time() + 60*60);
-        if(isset($_SESSION["from_basket"]))
-            header("Location: basket.php");
-        else
-            header("Location: index.php");
+                     $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
+            $_SESSION['email'] = $email;
+            setcookie("email", $email, time() + 60*60);
+            if(isset($_SESSION["from_basket"]))
+                header("Location: basket.php");
+
+            else
+                header("Location: index.php");
+              }
+        }
     }
 }
 ?>
@@ -83,12 +74,12 @@ if (isset($_REQUEST["f_sent"])){
                 <div class="LogInput">
                     <h5>Nombre de usuario: </h5>
                     <input type="text" name="email" class="form-control" placeholder="Nombre de usuario" value="<?php if(isset($_COOKIE["email"])) echo $_COOKIE["email"];?>" required>
-                    <?php echo "<h6 class=\"error\">$msg_email</h6>" ?>
+                    <?php if(isset($msg_email)) echo "<h6 class=\"error\">$msg_email</h6>"; ?>
                 </div>
                 <div class="LogInput">
                     <h5>Contraseña: </h5>
                     <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
-                    <?php echo "<h6 class=\"error\">$msg_password</h6>" ?>
+                    <?php if(isset($msg_password)) echo "<h6 class=\"error\">$msg_password</h6>"; ?>
                 </div>
                 <div class="LogInput">
                     <input type="Submit" name="f_sent" class="login" value="Identificate">

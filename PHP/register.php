@@ -55,7 +55,7 @@ if(isset($_REQUEST["f_sent"])){
                 session_start();
                 $_SESSION['nick'] = $nick;
                 $_SESSION['saldo'] = $saldo;
-                setcookie("nick", $nick, time() + 60*60);            
+                setcookie("email", $email, time() + 60*60);            
                 header("Location: index.php");
             }
         } catch (PDOException $e){
