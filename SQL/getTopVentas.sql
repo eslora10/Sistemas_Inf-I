@@ -21,3 +21,12 @@ BEGIN
 	RETURN QUERY SELECT anno, movietitle, movieid, sells FROM topVentas WHERE anno>=$1;
 END;
 $$ LANGUAGE 'plpgsql';
+
+--OPCIONALMENTE hemos creado un store procedure que saca 5 peliculas de cada genero para mostrarlas en la ventana index
+CREATE OR REPLACE FUNCTION getMoviesByGenre(character varying) RETURNS table(movietitle character varying, movieid integer) AS $$
+BEGIN
+	RETURN QUERY SELECT imdb_movies.movietitle, imdb_movies.movieid FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL JOIN genres WHERE genrename = $1 LIMIT 5;
+END;
+$$ LANGUAGE 'plpgsql';
+select * from getmoviesbygenre('Drama');
+SELECT movieid, movietitle FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL JOIN genres WHERE genrename='Drama' AND movietitle ILIKE('life%')
