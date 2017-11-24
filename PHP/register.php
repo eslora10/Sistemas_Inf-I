@@ -45,14 +45,15 @@ if(isset($_REQUEST["f_sent"])){
     }
     if($err != 1){
         /*Se crea un nuevo usuario*/
+
         $c_pass = md5($password);
         $saldo = rand(0, 100);
         /*conexion con la base de datos*/
         try{
             $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
-            $query = "INSERT INTO customers(username, password, email, creditcard, income) VALUES ($nick, $c_pass, $email,$ccard,  $saldo)";
+            $query = "INSERT INTO customers(username, password, email, creditcard, income) VALUES ('$nick', '$c_pass', '$email', '$ccard',  $saldo)";
             if(($database->query($query)) == false)
-                $msg_nick =  "Nombre de usuario no disponible";
+                $msg_nick =  'e-mail ya registrado';
             
         } catch (PDOException $e){
             $msg_nick = "Error al crear usuario";

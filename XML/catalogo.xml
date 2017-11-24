@@ -1,4 +1,5 @@
-<catalogo>      
+<?xml version="1.0"?>
+<catalogo>
     <pelicula>
         <id>1</id>
         <titulo>Los Vengadores</titulo>
@@ -22,5 +23,73 @@
         <director>Gore Verbinski</director>
         <sinopsis>Para el pícaro y seductor Capitán Jack Sparrow (Johnny Depp), las cristalinas aguas del Caribe, al igual que todos los mares del mundo, representan un gigantesco escenario lleno de misterio y aventuras.</sinopsis>
         <precio>8</precio>
+    </pelicula>
+    <pelicula>
+        <id>3</id>
+        <titulo>La Momia</titulo>
+        <generos>
+          <genero>Aventuras</genero>
+        </generos>
+        <poster>../media/img/laMomia.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Rebut de la momia.</sinopsis>
+        <precio>15</precio>
+    </pelicula>
+    <pelicula>
+        <id>4</id>
+        <titulo>Wonder Woman</titulo>
+        <generos>
+          <genero>Aventuras</genero>
+          <genero>Superheroes</genero>
+        </generos>
+        <poster>../media/img/wonderWoman.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Wonder Woman se une al universo cinematografico de DC.</sinopsis>
+        <precio>15</precio>
+    </pelicula>
+    <pelicula>
+        <id>5</id>
+        <titulo>annabelle</titulo>
+        <generos>
+          <genero>Thriller</genero>
+        </generos>
+        <poster>../media/img/annabelle.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Pelicula de miedo anabelle</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>6</id>
+        <titulo>gru</titulo>
+        <generos>
+          <genero>Infantil</genero>
+        </generos>
+        <poster>../media/img/gru.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Gru, tu villano favorito esta de vuelta.</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>7</id>
+        <titulo>La casa de la esperanza</titulo>
+        <generos>
+          <genero>Drama</genero>
+        </generos>
+        <poster>../media/img/laCasaDeLaEsperanza.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Basada en una historia real</sinopsis>
+        <precio>11</precio>
+    </pelicula>
+    <pelicula>
+        <id>8</id>
+        <titulo>Los mundos de Coraline</titulo>
+        <generos>
+          <genero>Infantil</genero>
+          <genero>Comedia</genero>
+        </generos>
+        <poster>../media/img/losMundosDeCaroline.jpg</poster>
+        <director>Esther Lopez</director>
+        <sinopsis>Coraline Jones se aburre hasta que encuentra una puerta secreta y descubre al otro lado una versión alternativa y mejor de su vida. </sinopsis>
+        <precio>11</precio>
     </pelicula>
 </catalogo>
