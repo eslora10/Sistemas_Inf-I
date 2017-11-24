@@ -56,18 +56,6 @@ $(document).ready(function() {
       });
     });
 
-/*works fine????????
-    $(document).ready(function(){
-      if( $("#ccard").isNumeric() ==false){
-       $("#errorCcard").show();
-       return false;
-      }
-
-
-
-    });
-
-*/
    function calcScore(pass) {
      var score = 0;
      if (!pass)
@@ -119,6 +107,36 @@ $(document).ready(function() {
             //usamos sintaxis JS por que JQ daba error
             var meter = document.getElementById('scoreMeter');
             meter.value=score*0.01
+
+        });
+    });
+
+    $(document).ready(function() {
+        function concurrentUsers(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) { 
+                    $("#concurrent").text(xhttp.responseText); 
+                }                
+            }
+            xhttp.open("GET", "concurrent-users.php", true);
+            xhttp.send();
+        }
+        setInterval(concurrentUsers, 3000);
+    });
+
+
+    $(document).ready(function(){
+        $('.desplegar').on("click", function(ev) {
+           ev.preventDefault();
+           if ($(this).closest('tr').next('.prueba').is(':visible')){
+              $(this).closest('tr').next('.prueba').hide();
+
+          }
+
+          else{
+              $(this).closest('tr').next('.prueba').show();
+          }
 
         });
     });

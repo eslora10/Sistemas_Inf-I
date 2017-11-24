@@ -28,8 +28,8 @@
                         echo "<h2>$pelicula->precio €</h2>";
                         ?>
                         <div>
-                            <a class="login" href="login.php">Comprar</a>
-                            <a class="login" href="basket_update.php?film=<?php echo "$film"; ?>">Añadir a la cesta</a>
+                            <a class="login" href="basket-update.php?basket=1&film=<?php echo "$film"; ?>">Comprar</a>
+                            <a class="login" href="basket-update.php?film=<?php echo "$film"; ?>">Añadir a la cesta</a>
                         </div>
                     </div>
                 </div>

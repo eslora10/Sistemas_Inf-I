@@ -43,25 +43,24 @@ if(isset($_REQUEST["f_sent"])){
         $msg_password_rep = "Las contraseñas no coinciden";
         $err = 1;
     }
-    if(is_dir("../usuarios/$nick")){
-        $msg_nick = "Ya hay un usuario registrado con ese nombre";
-        $err = 1 ;
-    }
     if($err != 1){
         /*Se crea un nuevo usuario*/
-        if(mkdir("../usuarios/$nick")){
-            $fdata = fopen("../usuarios/$nick/datos.dat", "w");
-            $c_pass = md5($password);
-            $saldo = rand(0, 100);
-            fwrite($fdata, "$nick\n$c_pass\n$email\n$ccard\n$saldo");
-            setcookie("nick", $nick, time() + 60*60);
-            header("Location: index.php");
-        } else {
+
+        $c_pass = md5($password);
+        $saldo = rand(0, 100);
+        /*conexion con la base de datos*/
+        try{
+            $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
+            $query = "INSERT INTO customers(username, password, email, creditcard, income) VALUES ('$nick', '$c_pass', '$email', '$ccard',  $saldo)";
+            if(($database->query($query)) == false)
+                $msg_nick =  'e-mail ya registrado';
+            
+        } catch (PDOException $e){
             $msg_nick = "Error al crear usuario";
+        }
 
       }
     }
-}
 
 ?>
 

@@ -55,8 +55,11 @@ if (isset($_REQUEST["f_sent"])){
         session_start();
         $_SESSION['email'] = $email;
         $_SESSION['saldo'] = $saldo;
-        setcookie("email", $email, time() + 60*60);
-        header("Location: index.php");
+        setcookie("nick", $email, time() + 60*60);/*quizas sea $nick*/
+        if(isset($_SESSION["from_basket"]))
+             header("Location: basket.php");
+        else
+            header("Location: index.php");
     }
 }
 ?>

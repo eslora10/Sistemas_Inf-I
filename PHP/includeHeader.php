@@ -8,8 +8,8 @@
                 echo $_SESSION['nick'];
                 echo "<span class=\"caret\"></span></button>";
                 echo "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\">";
-                echo "<li><a href=\"../HTML/history.html\">Historico</a></li>";
-                echo "<li><a href=\"login.php\">Log out</a></li>";
+                echo "<li><a href=\"history.php\">Historico</a></li>";
+                echo "<li><a href=\"logout.php\">Log out</a></li>";
                 echo "</ul>";
                 echo "</div>";
                 echo "</nav>";
