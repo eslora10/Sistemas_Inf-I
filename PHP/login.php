@@ -30,24 +30,28 @@ if (isset($_REQUEST["f_sent"])){
         $password = $_REQUEST["password"];
         $msg_password = "";
     } else {
-        $msg_password = "email obligatorio";
+        $msg_password = "password obligatoria";
         $err = 1;
     }
     /*Aqui deberiamos comprobar que el email y la contraseña coinciden*/
     $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
-    foreach ($db->query($sql) as $rowUser) {
-      if($email != $rowUser['email']){
+
+    foreach ( $db->query($sql) as $rowUser) {
+      if($email!==$rowUser['email']){
         $err=1;
-        $msg_email = "El usuario no existe";
+        $msg_email = "El email no existe";
       }else{
           /*comprobar contraseña*/
-          if(md5($password)!=$rowUser['password']){
+          if(strcmp((string)md5($password),(string)$rowUser['password'])!==0){
               $err=1;
               $msg_password = "La contraseña es incorrecta";
           }else{
-              /*todo ok*/
+              /*login OK*/
               $nick=$rowUser['username'];
               $_SESSION['nick'] = $nick;
+
+              /*comprobamos la existencia de un carrito*/
+              $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
           }
       }
     }
@@ -57,7 +61,7 @@ if (isset($_REQUEST["f_sent"])){
         $_SESSION['saldo'] = $saldo;
         setcookie("nick", $email, time() + 60*60);
         if(isset($_SESSION["from_basket"]))
-             header("Location: basket.php");
+            header("Location: basket.php");
         else
             header("Location: index.php");
     }
