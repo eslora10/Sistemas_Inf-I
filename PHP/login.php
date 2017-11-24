@@ -41,7 +41,7 @@ if (isset($_REQUEST["f_sent"])){
         $msg_email = "El usuario no existe";
       }else{
           /*comprobar contraseña*/
-          if($password!=$rowUser['password']){
+          if(md5($password)!=$rowUser['password']){
               $err=1;
               $msg_password = "La contraseña es incorrecta";
           }else{
