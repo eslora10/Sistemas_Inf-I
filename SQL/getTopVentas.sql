@@ -29,4 +29,4 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 select * from getmoviesbygenre('Drama');
-SELECT movieid, movietitle FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL JOIN genres WHERE genrename='Drama' AND movietitle ILIKE('life%')
+

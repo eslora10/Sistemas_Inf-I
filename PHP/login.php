@@ -56,6 +56,8 @@ if (isset($_REQUEST["f_sent"])){
               }
         }
     }
+    if(!isset($msg_password))
+        $msg_email = "E-mail no registrado";
 }
 ?>
 
@@ -72,8 +74,8 @@ if (isset($_REQUEST["f_sent"])){
            <h2>Inicia sesión</h2>
                 </div>
                 <div class="LogInput">
-                    <h5>Nombre de usuario: </h5>
-                    <input type="text" name="email" class="form-control" placeholder="Nombre de usuario" value="<?php if(isset($_COOKIE["email"])) echo $_COOKIE["email"];?>" required>
+                    <h5>E-mail: </h5>
+                    <input type="text" name="email" class="form-control" placeholder="E-mail" value="<?php if(isset($_COOKIE["email"])) echo $_COOKIE["email"];?>" required>
                     <?php if(isset($msg_email)) echo "<h6 class=\"error\">$msg_email</h6>"; ?>
                 </div>
                 <div class="LogInput">

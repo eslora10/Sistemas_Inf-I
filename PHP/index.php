@@ -26,7 +26,7 @@ session_start();
                     echo "<span>";
                     echo "<a href=\"film-detail.php?film=".$pelicula['id']."\" class=\"film-card\">";
                     echo "<span>";
-                    echo "<img class=\"film-image\" src=\"../media/img/".$pelicula['id'].".jpg\" alt='".$pelicula['pelicula']."'><br>";
+                    echo "<img class=\"film-image\" src=\"../media/img/".$pelicula['id'].".jpg\" alt='".$pelicula['id']."'><br>";
                     echo $pelicula['pelicula'];
                     echo "</span>";
                     echo "</a>";
@@ -49,20 +49,19 @@ session_start();
                     if (isset($_REQUEST['search']) && strcmp($_REQUEST['search'], "")){
                         /*Seleccionamos solo las peliculas que coincidan con la busqueda*/
                         $search = $_REQUEST['search'];
-                        $query = "SELECT movieid, movietitle FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL_JOIN genres WHERE genrename='".$genero['genrename']."' AND movietitle ILIKE('".$search."%')";
+                        $query = "SELECT movieid, movietitle FROM imdb_movies NATURAL JOIN imdb_moviegenres NATURAL JOIN genres WHERE genrename='".$genero['genrename']."' AND movietitle ILIKE('".$search."%')";
                     } else {
-                        $query = "SELECT * FROM getMoviesByGenre(".$genero['genrename'].")";
+                        $query = "SELECT * FROM getMoviesByGenre('".$genero['genrename']."')";
                     }
                     $peliculas = $database->query($query);
-                    print_r($peliculas);
-                    if(count($peliculas) >0 ){
+                    if($peliculas->rowCount() > 0 ){
                         echo "<div class=\"row-content\">";
                         echo "<h1 class=\"tittleRow\">".$genero['genrename']."</h1>";
                         foreach ($peliculas as $pelicula){
                             echo "<span>";
-                            echo "<a href=\"film-detail.php?film=\"".$pelicula['id']."\" class=\"film-card\">";
+                            echo "<a href=\"film-detail.php?film=\"".$pelicula['movieid']."\" class=\"film-card\">";
                             echo "<span>";
-                            echo "<img class=\"film-image\" src=\"".$pelicula['id'].".jpg\" alt='".$pelicula['movietitle']."'><br>";
+                            echo "<img class=\"film-image\" src=\"../media/img/".$pelicula['movieid'].".jpg\" alt='".$pelicula['movieid']."'><br>";
                             echo $pelicula['movietitle'];
                             echo "</span>";
                             echo "</a>";
