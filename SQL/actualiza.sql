@@ -156,6 +156,7 @@ ALTER TABLE sum_quantity RENAME TO orderdetail;
 ALTER TABLE orders ADD CONSTRAINT orders_customerid_fkey FOREIGN KEY (customerid)
 	REFERENCES public.customers(customerid) MATCH SIMPLE
 	ON UPDATE CASCADE ON DELETE CASCADE;
+SELECT setval('orders_orderid_seq', (SELECT orderid FROM orders ORDER BY orderid DESC LIMIT 1)+1, FALSE);
 
 --CAMBIOS PARA LA TABLA CUSTOMERS
 --Eliminacion de duplicados en el username

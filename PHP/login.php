@@ -33,7 +33,7 @@ if (isset($_REQUEST["f_sent"])){
     }
     /*Aqui deberiamos comprobar que el email y la contraseña coinciden*/
     if($err != 1){
-        $sql = "SELECT email, username, password, income FROM customers WHERE email='$email'";
+        $sql = "SELECT email, username, password, income, customerid FROM customers WHERE email='$email'";
         $res = $db->query($sql);
         foreach ( $res as $rowUser) {
           /*comprobar contraseña*/
@@ -44,8 +44,7 @@ if (isset($_REQUEST["f_sent"])){
               $nick=$rowUser['username'];
               $_SESSION['nick'] = $nick;
               $_SESSION['saldo'] = $rowUser['income'];
-              /*comprobamos la existencia de un carrito*/
-                     $sql = "SELECT email, username, password FROM customers WHERE email='$email'";
+              $_SESSION['userid'] = $rowUser['customerid'];
             $_SESSION['email'] = $email;
             setcookie("email", $email, time() + 60*60);
             if(isset($_SESSION["from_basket"]))
