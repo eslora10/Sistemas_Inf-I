@@ -26,22 +26,36 @@
                         $query = "SELECT * FROM imdb_movies WHERE movieid=$film";
 
                         foreach ($database->query($query) as $pelicula) {
-                    /*CUIDADO AQUI*/            echo "<h2 class=\"film-detail-title\">$pelicula[movietitle]</h2>";
+                            echo "<h2 class=\"film-detail-title\">$pelicula[movietitle]</h2>";
                         }
-                        echo "<h5> Géneros:";
 
+                        echo "<h5> Géneros:";
                         $query = "SELECT genrename FROM genres Natural JOIN imdb_moviegenres WHERE movieid=$film";
 
                         foreach ($database->query($query) as $genero){
-                    /*CUIDADO AQUI*/           echo "$genero[genrename] ";
+                            echo "$genero[genrename] ";
                         }
-                        echo "</h5>";
-                        echo "<h2>PRECIO €</h2>";
+                        echo "</h5><br>";
+
+
+                        echo "<h3>";
+                        echo "<table id='table1'>";
+
+                        $query = "SELECT * FROM products WHERE movieid=$film";
+                        foreach ($database->query($query) as $product){
+                            echo "<tr>";
+                                echo "<td>$product[description] : $product[price] €</td>";
+                                echo "<td>";
+                                    echo "<a class='comprar' href='basket-update.php?basket=1&film=$product[prodid]'>Comprar</a>";
+                                    echo "<a class='comprar' href='basket-update.php?film=$product[prodid]'>Añadir a la cesta</a><br>";
+                                echo "</td>";
+                            echo "</tr>";
+                        }
+                        echo "</table>";
+                        echo "</h3>";
+
                         ?>
-                        <div>
-                            <a class="login" href="basket-update.php?basket=1&film=<?php echo "$film"; ?>">Comprar</a>
-                            <a class="login" href="basket-update.php?film=<?php echo "$film"; ?>">Añadir a la cesta</a>
-                        </div>
+
                     </div>
                     </div>
                     </div>
