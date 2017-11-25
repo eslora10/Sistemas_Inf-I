@@ -55,7 +55,12 @@ if(isset($_REQUEST["f_sent"])){
                 session_start();
                 $_SESSION['nick'] = $nick;
                 $_SESSION['saldo'] = $saldo;
-                setcookie("email", $email, time() + 60*60);            
+                $_SESSION['email'] = $email;
+                setcookie("email", $email, time() + 60*60);  
+                /*Obtenemos el id que la base de datos ha asociado al usuario*/
+                $query = "SELECT customerid FROM customers WHERE email='$email'";
+                foreach($database->query($query) as $user)
+                    $_SESSION['userid'] = $user['customerid'];          
                 header("Location: index.php");
             }
         } catch (PDOException $e){

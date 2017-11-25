@@ -22,32 +22,41 @@ session_start();
                         <?php
                         $_SESSION["total_basket"] = 0;
                         if(!isset($_SESSION["basketNitems"]) || !$_SESSION["basketNitems"]){
-                            echo "<h>No hay articulos</h3>";
+                            echo "<h3>No hay articulos</h3>";
                         } else {
-                            $catalogo = simplexml_load_file("../XML/catalogo.xml");
+                            try {
+                                $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
+                            } catch (PDOException $e){
+                                echo "<h3>No hay articulos</h3>";
+                                die();
+                            }
                             echo "<table class=\"center\">";
                             echo "<tr>";
                             echo "<th>Imagen</th>";
                             echo "<th colspan=\"2\">Película</th>";
                             echo "<th>Unidades</th>";
+                            echo "<th>Edici&oacute;n</th>";
                             echo "<th>Precio</th>";
                             echo "</tr>";
                             foreach (array_keys($_SESSION["items"]) as $id){
                                 $uds = $_SESSION["items"][$id];
-                                $pelicula = $catalogo->xpath("/catalogo/pelicula[id=\"$id\"]")[0];
-                                $_SESSION["total_basket"]+= $pelicula->precio * $uds;
-                                echo "<tr>";
-                                echo "<td><a href=\"film-detail.php?film=$pelicula->id\"><img class=\"mini-image\" src=\"$pelicula->poster\" alt='$pelicula->titulo'></a></td>";
-                                echo "<td>$pelicula->titulo</td>";
-                                echo "<td><a href=\"basket-update.php?xfilm=$pelicula->id\"><i class=\"fa fa-times\"></i></a></td>";
-                                echo "<td>$uds</td>";
-                                echo "<td>". $pelicula->precio * $uds. "€</td>";
-                                echo "</tr>";
+                                $query = "SELECT movieid, price, description, movietitle FROM products NATURAL JOIN imdb_movies WHERE prod_id=$id";
+                                foreach($database->query($query) as $pelicula){
+                                    $_SESSION["total_basket"]+= $pelicula['price'] * $uds;
+                                    echo "<tr>";
+                                    echo "<td><a href=\"film-detail.php?film=".$pelicula['movieid']."\"><img class=\"mini-image\" src=\"".$pelicula['movieid'].".jpg\" alt='".$pelicula['movieid']."'></a></td>";
+                                    echo "<td>".$pelicula['movietitle']."</td>";
+                                    echo "<td><a href=\"basket-update.php?xfilm=".$pelicula['movieid']."\"><i class=\"fa fa-times\"></i></a></td>";
+                                    echo "<td>$uds</td>";
+                                    echo "<td>".$pelicula['description']."</td>";
+                                    echo "<td>". $pelicula['price'] * $uds. "€</td>";
+                                    echo "</tr>";
+                                }
                             }
 
                             echo "</table>";
 
-                            echo "<h3 class=\"basket-total\"> Total:". $_SESSION["total_basket"]. " € </h3>";
+                            echo "<h3 class=\"basket-total\"> Total (sin tasas): ". $_SESSION["total_basket"]. " € </h3>";
                             echo "<a class=\"login\" href=\"basket-check.php\">Confirmar</a>";
                         }
                         ?>

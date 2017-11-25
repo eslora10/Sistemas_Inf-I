@@ -59,7 +59,7 @@ session_start();
                         echo "<h1 class=\"tittleRow\">".$genero['genrename']."</h1>";
                         foreach ($peliculas as $pelicula){
                             echo "<span>";
-                            echo "<a href=\"film-detail.php?film=\"".$pelicula['movieid']."\" class=\"film-card\">";
+                            echo "<a href=\"film-detail.php?film=".$pelicula['movieid']."\" class=\"film-card\">";
                             echo "<span>";
                             echo "<img class=\"film-image\" src=\"../media/img/".$pelicula['movieid'].".jpg\" alt='".$pelicula['movieid']."'><br>";
                             echo $pelicula['movietitle'];

@@ -46,8 +46,8 @@
                             echo "<tr>";
                                 echo "<td>$product[description] : $product[price] €</td>";
                                 echo "<td>";
-                                    echo "<a class='comprar' href='basket-update.php?basket=1&film=$product[prodid]'>Comprar</a>";
-                                    echo "<a class='comprar' href='basket-update.php?film=$product[prodid]'>Añadir a la cesta</a><br>";
+                                    echo "<a class='comprar' href='basket-update.php?basket=1&film=$product[prod_id]'>Comprar</a>";
+                                    echo "<a class='comprar' href='basket-update.php?film=$product[prod_id]'>Añadir a la cesta</a><br>";
                                 echo "</td>";
                             echo "</tr>";
                         }

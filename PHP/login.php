@@ -46,6 +46,25 @@ if (isset($_REQUEST["f_sent"])){
               $_SESSION['saldo'] = $rowUser['income'];
               $_SESSION['userid'] = $rowUser['customerid'];
             $_SESSION['email'] = $email;
+              /*Cargamos el carro del usuario*/
+              $customerid = $_SESSION['userid'];
+            /*Vemos si el usuario ya tiene un carrito*/
+            /*IMAGEN TITULO UNIDADES PRECIO*/
+            $query = "SELECT orderid, prod_id, quantity FROM orders NATURAL JOIN orderdetail NATURAL JOIN products NATURAL JOIN imdb_movies WHERE status IS NULL AND CUSTOMERID=$customerid";
+            $products = $db->query($query);
+            if($products->rowCount()>0){
+                foreach($products as $product){
+                    $prod_id = $product['prod_id'];
+                    $quantity = $product['quantity'];
+                    $_SESSION["items"]["$prod_id"] = $quantity;
+                    $_SESSION["basketNitems"] += $quantity;   
+                    $_SESSION["orderid"] = $product['prod_id'];
+                }
+            /*Actualizamos la fecha del carro a la actual*/
+            $query = "UPDATE orders SET orderdate=current_date WHERE customerid=$customerid AND status IS NULL";   
+
+            $db->query($query);
+            }
             setcookie("email", $email, time() + 60*60);
             if(isset($_SESSION["from_basket"]))
                 header("Location: basket.php");
