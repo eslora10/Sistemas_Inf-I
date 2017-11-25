@@ -26,14 +26,14 @@
                         $query = "SELECT * FROM imdb_movies WHERE movieid=$film";
 
                         foreach ($database->query($query) as $pelicula) {
-                    /*CUIDADO AQUI*/            echo "<h2 class=\"film-detail-title\">$pelicula[movietitle]</h2>";
+                            echo "<h2 class=\"film-detail-title\">$pelicula[movietitle]</h2>";
                         }
                         echo "<h5> Géneros:";
 
                         $query = "SELECT genrename FROM genres Natural JOIN imdb_moviegenres WHERE movieid=$film";
 
                         foreach ($database->query($query) as $genero){
-                    /*CUIDADO AQUI*/           echo "$genero[genrename] ";
+                            echo "$genero[genrename] ";
                         }
                         echo "</h5>";
                         echo "<h2>PRECIO €</h2>";
