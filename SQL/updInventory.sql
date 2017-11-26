@@ -1,12 +1,12 @@
-﻿CREATE OR REPLACE FUNCTION updateInventory() 
+﻿CREATE OR REPLACE FUNCTION updateInventory()
 RETURNS TRIGGER AS $$
 DECLARE
 	res record;
 	comp integer;
 BEGIN
 FOR res in (select prod_id, sum(quantity) as sum
-		from orderdetail Natural Join orders 
-		where NEW.orderid =orderdetail.orderid 
+		from orderdetail Natural Join orders
+		where NEW.orderid =orderdetail.orderid
 		group by prod_id)
 
 LOOP
@@ -22,19 +22,12 @@ LOOP
 
 END LOOP;
 
-RETURN NEW; 
+RETURN NEW;
 END;
 $$LANGUAGE 'plpgsql';
 
 DROP TRIGGER IF EXISTS t_updateInventory ON orders;
 CREATE TRIGGER t_updateInventory AFTER UPDATE ON orders
-FOR EACH ROW 
-WHEN (OLD.status IS DISTINCT FROM NEW:status AND OLD.status IS NULL)
+FOR EACH ROW
+WHEN (OLD.status IS DISTINCT FROM NEW.status AND OLD.status IS NULL)
 EXECUTE PROCEDURE updateInventory();
-
-
-Select * from inventory Where prod_id = 1014
-
-UPDATE orders SET status = 1 where orderid=1
-
-SELECT * from orders where orderid=1
