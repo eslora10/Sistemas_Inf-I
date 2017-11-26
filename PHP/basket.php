@@ -46,7 +46,7 @@ session_start();
                                     echo "<tr>";
                                     echo "<td><a href=\"film-detail.php?film=".$pelicula['movieid']."\"><img class=\"mini-image\" src=\"".$pelicula['movieid'].".jpg\" alt='".$pelicula['movieid']."'></a></td>";
                                     echo "<td>".$pelicula['movietitle']."</td>";
-                                    echo "<td><a href=\"basket-update.php?xfilm=".$pelicula['movieid']."\"><i class=\"fa fa-times\"></i></a></td>";
+                                    echo "<td><a href=\"basket-update.php?xfilm=$id\"><i class=\"fa fa-times\"></i></a></td>";
                                     echo "<td>$uds</td>";
                                     echo "<td>".$pelicula['description']."</td>";
                                     echo "<td>". $pelicula['price'] * $uds. "€</td>";

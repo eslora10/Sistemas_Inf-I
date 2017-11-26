@@ -171,6 +171,7 @@ ALTER TABLE customers ALTER creditcardtype DROP NOT NULL;
 ALTER TABLE customers ALTER creditcardexpiration DROP NOT NULL;
 ALTER TABLE customers ALTER income SET NOT NULL;
 ALTER TABLE customers ALTER email SET NOT NULL;
+ALTER TABLE customers ALTER income TYPE numeric;
 ALTER TABLE customers ADD CONSTRAINT customers_unique_username UNIQUE(email);
 --Cambio de las contraseñas a md5
 UPDATE customers SET password=md5(password);
@@ -179,9 +180,12 @@ SELECT setval('customers_customerid_seq', (SELECT customerid FROM customers ORDE
 --Creacion de tabla de alertas para el trigger de updInventory
 CREATE TABLE alertas(
 prod_id integer NOT NULL,
-msg varchar NOT NULL,
+msg varchar NOT NULL DEFAULT 'Producto agotado',
 CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
 );
 
+INSERT INTO alertas(prod_id) SELECT prod_id FROM inventory WHERE stock=0
 
-
+SELECT * FROM alertas
+select * from products natural join imdb_movies where prod_id = 356
+SELECT * FROM alertas natural join products WHERE prod_id=356

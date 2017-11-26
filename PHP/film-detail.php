@@ -11,7 +11,7 @@
 
                     $film = $_REQUEST['film'];
 
-                    echo "<img class='film-detail-image' src='../media/img/$film.jpg' alt='aaa'>";
+                    echo "<img class='film-detail-image' src='../media/img/$film.jpg' alt='$film'>";
                     ?>
 
                     <div class="film-detail-text">
@@ -46,8 +46,16 @@
                             echo "<tr>";
                                 echo "<td>$product[description] : $product[price] €</td>";
                                 echo "<td>";
+                            $query2 = "SELECT * FROM alertas WHERE prod_id=$product[prod_id]";
+                            $res = $database->query($query2);
+                            if($res->rowCount() == 0){
                                     echo "<a class='comprar' href='basket-update.php?basket=1&film=$product[prod_id]'>Comprar</a>";
                                     echo "<a class='comprar' href='basket-update.php?film=$product[prod_id]'>Añadir a la cesta</a><br>";
+                            } else {
+                                foreach($res as $alerta)
+                                    echo $alerta['msg'];
+                                
+                            }
                                 echo "</td>";
                             echo "</tr>";
                         }
