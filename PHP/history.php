@@ -25,14 +25,14 @@ $nick=$_SESSION["nick"];
 
                       echo "<table class=\"center\">";
                       echo "<tr>";
-                      echo "<th >Fecha </th>";
+                      echo "<th >Tus compras </th>";
                       echo "</tr>";
 
                       /*Conseguimos los pedidos del usuario*/
-                      $query = "SELECT * FROM orders where status IS NOT NULL and customerid in (SELECT customerid FROM customers WHERE email=$_SESSION[email])";
+                      $query = "SELECT * FROM orders where status IS NOT NULL and customerid in (SELECT customerid FROM customers WHERE email='$_SESSION[email]')";
                       foreach($database->query($query) as $order){
                           echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
-                          echo "<td>$order[orderdate] <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
+                          echo "<td> Compra en: $order[orderdate] <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
                           echo "</tr>";
 
                          #dentro del tr generamos la tabla nueva
@@ -47,9 +47,6 @@ $nick=$_SESSION["nick"];
                           $queryContent="SELECT * FROM (Select prod_id, quantity FROM orderdetail WHERE orderid = $order[orderid]) as uno NATURAL JOIN(SELECT prod_id, movieid, price, description, movietitle FROM products NATURAL JOIN imdb_movies WHERE prod_id in (SELECT prod_id FROM orderdetail WHERE orderid = $order[orderid])) as dos";
 
                           foreach ($database->query($queryContent) as $Content) {
-
-                            $titulo = $catalogo->xpath("/catalogo/pelicula[id=\"$p->id\"]/titulo")[0];
-
                             echo "<tr>";
                             echo "<td >$Content[movietitle]</td>";
                             echo "<td >$Content[quantity]</td>";
