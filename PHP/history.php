@@ -14,34 +14,46 @@ $nick=$_SESSION["nick"];
                           <h2>Historial</h2>
 
                       <?php
-                      $historial = simplexml_load_file("../usuarios/$nick/historial.xml");
+                      /*Conexion con la base de datos*/
+                      try {
+                          $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
+                      } catch (PDOException $e) {
+                          echo "<h1 class='err-db'>Se ha producido un error interno</h1>";
+                          die();
+                      }
+
+
                       echo "<table class=\"center\">";
                       echo "<tr>";
                       echo "<th >Fecha </th>";
                       echo "</tr>";
-                      foreach ($historial->fecha as $day){
-                        echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
-                        echo "<td>$day->date <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
-                        echo "</tr>";
 
-                        #dentro del tr generamos la tabla nueva
-                        echo "<tr class=\"prueba\">";
-                        echo "<td >";
+                      /*Conseguimos los pedidos del usuario*/
+                      $query = "SELECT * FROM orders where status IS NOT NULL and customerid in (SELECT customerid FROM customers WHERE email=$_SESSION[email])";
+                      foreach($database->query($query) as $order){
+                          echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
+                          echo "<td>$order[orderdate] <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
+                          echo "</tr>";
+
+                         #dentro del tr generamos la tabla nueva
+                          echo "<tr class=\"prueba\">";
+                          echo "<td >";
                           echo "<table class='minicenter'>";
                           echo "<tr>";
                           echo "<th >Titulo </th>";
                           echo "<th >Unidades </th>";
                           echo "<th >Precio </th>";
                           echo "</tr>";
-                          $catalogo = simplexml_load_file("../XML/catalogo.xml");
-                          foreach ($day->pelicula as $p) {
+                          $queryContent="SELECT * FROM (Select prod_id, quantity FROM orderdetail WHERE orderid = $order[orderid]) as uno NATURAL JOIN(SELECT prod_id, movieid, price, description, movietitle FROM products NATURAL JOIN imdb_movies WHERE prod_id in (SELECT prod_id FROM orderdetail WHERE orderid = $order[orderid])) as dos";
+
+                          foreach ($database->query($queryContent) as $Content) {
 
                             $titulo = $catalogo->xpath("/catalogo/pelicula[id=\"$p->id\"]/titulo")[0];
 
                             echo "<tr>";
-                            echo "<td >$titulo</td>";
-                            echo "<td >$p->uds</td>";
-                            echo "<td >$p->precio</td>";
+                            echo "<td >$Content[movietitle]</td>";
+                            echo "<td >$Content[quantity]</td>";
+                            echo "<td >$Content[price]</td>";
                             echo "</tr>";
                           }
                           echo "</table>";
