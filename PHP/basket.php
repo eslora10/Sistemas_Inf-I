@@ -14,7 +14,8 @@ session_start();
                             if(isset($_REQUEST["sell"]) && $_REQUEST["sell"] == 0){
                                 $saldo = $_SESSION["saldo"];
                                 echo "<h3>Saldo insuficiente: $saldo €</h3>";
-                            }
+                            } else if (isset($_REQUEST["sell"]) && $_REQUEST["sell"] == 1)
+                                echo "<h3>Su compra no se ha podido confirmar porque alguno de los articulos seleccionados no esta en stock</h3>";
                             ?>
                             <h2>Carrito</h2>
 

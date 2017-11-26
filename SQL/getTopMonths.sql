@@ -23,5 +23,3 @@ BEGIN
 	
 END;
 $$ LANGUAGE 'plpgsql';
-
-select getTopMonths(19000, 320000);
