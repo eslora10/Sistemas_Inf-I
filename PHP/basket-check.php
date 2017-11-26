@@ -3,13 +3,13 @@ session_start();
 try {
     $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
 } catch(PDOException $e){
-    header("Location: basket.php?sell=0");
+    header("Location: basket.php");
 }
 if(!isset($_SESSION["saldo"])){
     /*El usuario debe hacer login primero*/
     $_SESSION["from_basket"] = true;
     header("Location: login.php");
-} 
+}
 /*Conseguimos el totalamount para comprobar si el usuario tiene saldo suficiente*/
 $query = "SELECT totalamount FROM orders WHERE orderid=".$_SESSION['orderid'];
 foreach($database->query($query) as $totalamount)
@@ -27,15 +27,16 @@ if($total > $_SESSION["saldo"]){
     suspendido la compra si el stock no es suficiente*/
     $query = "SELECT status FROM orders WHERE orderid=".$_SESSION['orderid'];
     foreach($database->query($query) as $status){
-        if(strcmp($status['status'], 'Paid'))
+        if(strcmp($status['status'], 'Paid')){
              header("Location: basket.php?sell=1");
-        die();
-    }
+             die();
+         }
+     }
     /*Actualizamos el saldo en sesion*/
     $_SESSION["saldo"] -= $_SESSION["total_basket"];
     $query = "UPDATE customers SET income=income-".$_SESSION["total_basket"]." WHERE customerid=$userid";
     $database->query($query);
-    
+
     unset($_SESSION["items"]);
     unset($_SESSION["basketNitems"]);
     header("Location: index.php");

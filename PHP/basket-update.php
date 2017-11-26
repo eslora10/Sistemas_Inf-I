@@ -26,7 +26,7 @@ if(isset($_REQUEST["film"])){
             /*ponemos las tasas de Espana 21*/
             $customerid = $_SESSION['userid'];
             $query = "INSERT INTO orders(orderdate, customerid, netamount, tax, totalamount) VALUES (current_date, $customerid, 0, 21, 0)";
-            $database->query($query); 
+            $database->query($query);
             /*Obtenemos el orderid recientemente asignado al carro creado*/
             $query = "SELECT orderid FROM orders WHERE customerid=$customerid AND status IS NULL";
             foreach($database->query($query) as $order){
@@ -46,7 +46,6 @@ if(isset($_REQUEST["film"])){
         if(isset($_SESSION['userid'])){
             /*Si hay un usuario con login, actualizamos el carrito en db*/
             $query = "UPDATE orderdetail SET quantity=quantity+1 WHERE orderid=".$_SESSION['orderid']." AND prod_id=".$_REQUEST['film'];
-            echo $query;
             $database->query($query);
         }
     }
@@ -56,7 +55,6 @@ if(isset($_REQUEST["film"])){
         if(isset($_SESSION['userid'])){
             /*Si hay un usuario con login, actualizamos el carrito en db*/
             $query = "INSERT INTO orderdetail(orderid, prod_id, price, quantity) VALUES (".$_SESSION['orderid'].",".$_REQUEST['film'].",$price, 1)";
-            echo $query;
             $database->query($query);
         }
     }
@@ -64,7 +62,7 @@ if(isset($_REQUEST["film"])){
    if(isset($_REQUEST["basket"]))
        header("Location: basket.php");
     /*Si selecciono "Añadir ..." mostramos la ventana de index*/
-   else 
+   else
         header("Location: index.php");
 } else if (isset($_REQUEST["xfilm"])){
     /*Caso borrar una peli*/
@@ -75,13 +73,13 @@ if(isset($_REQUEST["film"])){
             $query = "UPDATE orderdetail SET quantity=quantity-1 WHERE orderid=".$_SESSION['orderid']." AND prod_id=".$_REQUEST["xfilm"];
             $database->query($query);
         }
-        /*Si las unidades de la pelicula llegan a 0 la borramos del array 
+        /*Si las unidades de la pelicula llegan a 0 la borramos del array
         para que no aparezca en la tabla del carrito*/
-        if(!$_SESSION["items"][$_REQUEST["xfilm"]]) 
+        if(!$_SESSION["items"][$_REQUEST["xfilm"]])
             unset($_SESSION["items"][$_REQUEST["xfilm"]]);
         $_SESSION["basketNitems"]--;
         /*La base de datos ya hace esta comprobacion en el trigger*/
-        
+
     }
     header("Location: basket.php");
 }
