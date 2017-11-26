@@ -13,6 +13,10 @@ BEGIN
 		price := NEW.price;
 		--Sumaremos o restaremos el precio en funcion de como cambian las unidades
 		netamount_upd := (NEW.quantity - OLD.quantity)*price;
+		IF (NEW.quantity = 0) THEN
+			DELETE FROM orderdetail WHERE orderid=orderid_upd AND prod_id=NEW.prod_id;
+			RETURN NEW;
+		END IF;		
 
 	ELSIF (TG_OP = 'DELETE') THEN 
 		--Necesitamos saber cuantas unidades borramos y su precio

@@ -58,7 +58,7 @@ if (isset($_REQUEST["f_sent"])){
                     $quantity = $product['quantity'];
                     $_SESSION["items"]["$prod_id"] = $quantity;
                     $_SESSION["basketNitems"] += $quantity;   
-                    $_SESSION["orderid"] = $product['prod_id'];
+                    $_SESSION["orderid"] = $product['orderid'];
                 }
             /*Actualizamos la fecha del carro a la actual*/
             $query = "UPDATE orders SET orderdate=current_date WHERE customerid=$customerid AND status IS NULL";   

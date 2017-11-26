@@ -22,7 +22,7 @@ if(isset($_REQUEST["film"])){
         $_SESSION["items"] = array();
         /*Comprobamos si hay un usuario con login hecho*/
         if(isset($_SESSION['userid'])){
-            /*En caso contrario creamos el carrito*/
+            /*Este usuario no tiene un carrito, se lo creamos*/
             /*ponemos las tasas de Espana 21*/
             $customerid = $_SESSION['userid'];
             $query = "INSERT INTO orders(orderdate, customerid, netamount, tax, totalamount) VALUES (current_date, $customerid, 0, 21, 0)";
@@ -45,7 +45,7 @@ if(isset($_REQUEST["film"])){
         $_SESSION["items"][$_REQUEST["film"]]++;
         if(isset($_SESSION['userid'])){
             /*Si hay un usuario con login, actualizamos el carrito en db*/
-            $query = "UPDATE orderdetail SET quantity=quantity+1 WHERE orderid=".$_SESSION['orderid'];
+            $query = "UPDATE orderdetail SET quantity=quantity+1 WHERE orderid=".$_SESSION['orderid']." AND prod_id=".$_REQUEST['film'];
             echo $query;
             $database->query($query);
         }
@@ -64,17 +64,23 @@ if(isset($_REQUEST["film"])){
    if(isset($_REQUEST["basket"]))
        header("Location: basket.php");
     /*Si selecciono "Añadir ..." mostramos la ventana de index*/
-    else 
+   else 
         header("Location: index.php");
 } else if (isset($_REQUEST["xfilm"])){
     /*Caso borrar una peli*/
     if (array_key_exists($_REQUEST["xfilm"], $_SESSION["items"])) {
         $_SESSION["items"][$_REQUEST["xfilm"]]--;
+        if(isset($_SESSION['userid'])){
+            /*Si hay un usuario registrado, actualizamos la informacion en la base de datos*/
+            $query = "UPDATE orderdetail SET quantity=quantity-1 WHERE orderid=".$_SESSION['orderid']." AND prod_id=".$_REQUEST["xfilm"];
+            $database->query($query);
+        }
         /*Si las unidades de la pelicula llegan a 0 la borramos del array 
         para que no aparezca en la tabla del carrito*/
         if(!$_SESSION["items"][$_REQUEST["xfilm"]]) 
             unset($_SESSION["items"][$_REQUEST["xfilm"]]);
         $_SESSION["basketNitems"]--;
+        /*La base de datos ya hace esta comprobacion en el trigger*/
         
     }
     header("Location: basket.php");
