@@ -185,7 +185,3 @@ CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
 );
 
 INSERT INTO alertas(prod_id) SELECT prod_id FROM inventory WHERE stock=0
-
-SELECT * FROM alertas
-select * from products natural join imdb_movies where prod_id = 356
-SELECT * FROM alertas natural join products WHERE prod_id=356

@@ -19,12 +19,20 @@ if($total > $_SESSION["saldo"]){
     header("Location: basket.php?sell=0");
 } else {
     $userid = $_SESSION["userid"];
-    $_SESSION["saldo"] -= $_SESSION["total_basket"];
     /*Cambiamos el saldo en base de datos*/
     /*Cambiamos el estado del pedido a "Paid"*/
     $query = "UPDATE orders SET status='Paid' WHERE customerid=$userid";
     $database->query($query);
+    /*Y ahora comprobramos que realmente se ha cambiado, porque el trigger de update inventory puede haber
+    suspendido la compra si el stock no es suficiente*/
+    $query = "SELECT status FROM orders WHERE orderid=".$_SESSION['orderid'];
+    foreach($database->query($query) as $status){
+        if(strcmp($status['status'], 'Paid'))
+             header("Location: basket.php?sell=1");
+        die();
+    }
     /*Actualizamos el saldo en sesion*/
+    $_SESSION["saldo"] -= $_SESSION["total_basket"];
     $query = "UPDATE customers SET income=income-".$_SESSION["total_basket"]." WHERE customerid=$userid";
     $database->query($query);
     
