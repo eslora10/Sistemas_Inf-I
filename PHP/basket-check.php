@@ -30,8 +30,13 @@ if($total > $_SESSION["saldo"]){
         if(strcmp($status['status'], 'Paid')){
              header("Location: basket.php?sell=1");
              die();
+<<<<<<< HEAD
          }
      }
+=======
+        }
+    }
+>>>>>>> 5966405dbb26a035b31c7745ce23a2af1a862c07
     /*Actualizamos el saldo en sesion*/
     $_SESSION["saldo"] -= $_SESSION["total_basket"];
     $query = "UPDATE customers SET income=income-".$_SESSION["total_basket"]." WHERE customerid=$userid";
