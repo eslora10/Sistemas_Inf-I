@@ -22,6 +22,9 @@ $nick=$_SESSION["nick"];
                           die();
                       }
 
+                      if($_REQUEST['saldoNeg']==1){
+                          echo "<h2> No puedes retiras saldo de tu cuenta </h2>";
+                      }
 
                       echo "<table class=\"center\">";
                       echo "<tr>";
@@ -58,13 +61,14 @@ $nick=$_SESSION["nick"];
                         echo "</tr>";
                       }
                       echo "</table>";
-                      ?>
 
+                      ?>
                   <h3 class="basket-total"> Saldo disponible: <?php echo $_SESSION['saldo']; ?>€ </h3>
 
                   <form action="historySaldo.php" METHOD=post>
                     <div class="header-form">
                     <h3>Añadir saldo:
+
                         <input class="add_saldo" type="number" name="add_saldo" required><input class="add_saldo-btn" type="submit" value="Añadir"></h3>
                     </div>
 
