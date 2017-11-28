@@ -4,8 +4,14 @@ DECLARE
     res record;
     comp integer;
 BEGIN
-FOR res in (select prod_id, sum(quantity) as sum
-        from orderdetail Natural Join orders
+FOR res in
+        (select
+            prod_id,
+            sum(quantity) as sum
+        from
+            orderdetail
+            Natural Join
+            orders
         where NEW.orderid =orderdetail.orderid
         group by prod_id)
 
@@ -19,8 +25,14 @@ LOOP
     END IF;
 END LOOP;
 
-FOR res in (select prod_id, sum(quantity) as sum
-        from orderdetail Natural Join orders
+FOR res in
+        (select
+            prod_id,
+            sum(quantity) as sum
+        from
+            orderdetail
+            Natural Join
+            orders
         where NEW.orderid =orderdetail.orderid
         group by prod_id)
 

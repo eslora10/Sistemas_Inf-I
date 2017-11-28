@@ -4,7 +4,11 @@ CREATE VIEW order_numyears AS
 
 DROP VIEW IF EXISTS calculated_price;
 CREATE VIEW calculated_price AS
-(SELECT products.prod_id, orderid, products.price, coef,
+(SELECT
+    products.prod_id,
+    orderid,
+    products.price,
+    coef,
     products.price/1.02^coef AS rel_price 
 FROM products JOIN orderdetail NATURAL JOIN order_numyears
     ON products.prod_id=orderdetail.prod_id);

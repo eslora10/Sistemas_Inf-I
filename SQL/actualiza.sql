@@ -38,7 +38,9 @@ CREATE TABLE aux (
     countryid integer NOT NULL
 );
 INSERT INTO aux(movieid, countryid)
-SELECT movieid, countryid
+SELECT
+    movieid,
+    countryid
 FROM countries, imdb_moviecountries
 WHERE countryname=country;
 
@@ -59,7 +61,9 @@ CREATE TABLE aux (
     genreid integer NOT NULL
 );
 INSERT INTO aux(movieid, genreid)
-SELECT movieid, genreid
+SELECT
+    movieid,
+    genreid
 FROM genres, imdb_moviegenres
 WHERE genrename=genre;
 
