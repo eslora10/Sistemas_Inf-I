@@ -209,7 +209,7 @@ CREATE TABLE alertas(
 CONSTRAINT alerta_pkey PRIMARY KEY (prod_id, msg)
 );
 
-INSERT INTO alertas(prod_id) SELECT prod_id FROM inventory WHERE stock=0
+INSERT INTO alertas(prod_id) SELECT prod_id FROM inventory WHERE stock=0;
 
 DROP TABLE IF EXISTS topVentas;
 SELECT anno, movietitle, sells, movieid INTO topVentas FROM

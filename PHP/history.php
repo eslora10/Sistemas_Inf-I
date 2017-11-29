@@ -32,7 +32,7 @@ $nick=$_SESSION["nick"];
                       echo "</tr>";
 
                       /*Conseguimos los pedidos del usuario*/
-                      $query = "SELECT * FROM orders where status IS NOT NULL and customerid in (SELECT customerid FROM customers WHERE email='$_SESSION[email]')";
+                      $query = "SELECT * FROM orders where status IS NOT NULL and customerid in (SELECT customerid FROM customers WHERE email='$_SESSION[email]') ORDER BY orderdate DESC";
                       foreach($database->query($query) as $order){
                           echo "<tr >"; /* ponemos la clase desplegable aqui para que la funcion .next de JQUERY  funcione ; necesita un sibbling*/
                           echo "<td> Compra en: $order[orderdate] <a class=\"desplegar\"><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></a></td>";
