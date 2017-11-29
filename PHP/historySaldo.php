@@ -5,6 +5,7 @@ session_start();
 
     if ( $_REQUEST["add_saldo"]<0) {
         header("Location: history.php?saldoNeg=1");
+        die();
     }
     $_SESSION["saldo"] += $_REQUEST["add_saldo"];
 

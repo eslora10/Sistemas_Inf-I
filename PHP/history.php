@@ -22,7 +22,7 @@ $nick=$_SESSION["nick"];
                           die();
                       }
 
-                      if($_REQUEST['saldoNeg']==1){
+                      if(isset($_REQUEST['saldoNeg']) and $_REQUEST['saldoNeg']==1){
                           echo "<h2> No puedes retiras saldo de tu cuenta </h2>";
                       }
 
