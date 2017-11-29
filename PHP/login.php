@@ -48,8 +48,38 @@ if (isset($_REQUEST["f_sent"])){
             $_SESSION['email'] = $email;
               /*Cargamos el carro del usuario*/
               $customerid = $_SESSION['userid'];
-            /*Vemos si el usuario ya tiene un carrito*/
+              /*Vemos si el usuario ya tiene un carrito*/
             /*IMAGEN TITULO UNIDADES PRECIO*/
+            $query = "SELECT orderid, prod_id, quantity FROM orders NATURAL JOIN orderdetail NATURAL JOIN products NATURAL JOIN imdb_movies WHERE status IS NULL AND CUSTOMERID=$customerid";
+            $products = $db->query($query);
+              /*Comprobamos si ya habia en sesion un carro*/
+                if(isset($_SESSION['basketNitems'])){
+                /*Si el usuario no tiene carro en db se lo creamos*/
+                if($products->rowCount()<=0){
+                    $customerid = $_SESSION['userid'];
+                    $query = "INSERT INTO orders(orderdate, customerid, netamount, tax, totalamount) VALUES (current_date, $customerid, 0, 21, 0)";
+                    $db->query($query);
+                    /*Obtenemos el orderid recientemente asignado al carro creado*/
+                    $query = "SELECT orderid FROM orders WHERE customerid=$customerid AND status IS NULL";
+                    foreach($db->query($query) as $order){
+                        $_SESSION['orderid'] = $order['orderid'];
+                    }
+                } else {
+                    $_SESSION['orderid'] = $products->fetch()['orderid'];
+                }
+                 
+                /*Guardamos la informacion del carro en db*/
+                foreach($_SESSION['items'] as $id => $quantity){
+                    $query = "SELECT price FROM products WHERE prod_id=".$id;
+                    $price = $db->query($query)->fetch()['price'];
+                    $query = "INSERT INTO orderdetail(orderid, prod_id, price, quantity) VALUES (".$_SESSION['orderid'].",".$id.",$price, $quantity)";
+                    $db->query($query);
+                }
+                    /*destruimos el carro en sesion*/
+                unset($_SESSION["items"]);
+                unset($_SESSION["basketNitems"]);
+            }
+              
             $query = "SELECT orderid, prod_id, quantity FROM orders NATURAL JOIN orderdetail NATURAL JOIN products NATURAL JOIN imdb_movies WHERE status IS NULL AND CUSTOMERID=$customerid";
             $products = $db->query($query);
             if($products->rowCount()>0){
@@ -62,7 +92,7 @@ if (isset($_REQUEST["f_sent"])){
                 }
             /*Actualizamos la fecha del carro a la actual*/
             $query = "UPDATE orders SET orderdate=current_date WHERE customerid=$customerid AND status IS NULL";   
-
+            
             $db->query($query);
             }
             setcookie("email", $email, time() + 60*60);

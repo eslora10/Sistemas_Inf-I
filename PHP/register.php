@@ -60,7 +60,28 @@ if(isset($_REQUEST["f_sent"])){
                 /*Obtenemos el id que la base de datos ha asociado al usuario*/
                 $query = "SELECT customerid FROM customers WHERE email='$email'";
                 foreach($database->query($query) as $user)
-                    $_SESSION['userid'] = $user['customerid'];          
+                    $_SESSION['userid'] = $user['customerid'];
+                
+              /*Vemos si el usuario ya tiene un carrito*/
+              /*Comprobamos si ya habia en sesion un carro*/
+                if(isset($_SESSION['basketNitems'])){
+                    $customerid = $_SESSION['userid'];
+                    $query = "INSERT INTO orders(orderdate, customerid, netamount, tax, totalamount) VALUES (current_date, $customerid, 0, 21, 0)";
+                    $database->query($query);
+                    /*Obtenemos el orderid recientemente asignado al carro creado*/
+                    $query = "SELECT orderid FROM orders WHERE customerid=$customerid AND status IS NULL";
+                    foreach($database->query($query) as $order){
+                        $_SESSION['orderid'] = $order['orderid'];
+                    }
+
+                    /*Guardamos la informacion del carro en database*/
+                    foreach($_SESSION['items'] as $id => $quantity){
+                        $query = "SELECT price FROM products WHERE prod_id=".$id;
+                        $price = $database->query($query)->fetch()['price'];
+                        $query = "INSERT INTO orderdetail(orderid, prod_id, price, quantity) VALUES (".$_SESSION['orderid'].",".$id.",$price, $quantity)";
+                        $database->query($query);
+                    }
+                } 
                 header("Location: index.php");
             }
         } catch (PDOException $e){
