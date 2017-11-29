@@ -13,7 +13,7 @@ CREATE VIEW calculated_price AS
 FROM products JOIN orderdetail NATURAL JOIN order_numyears
     ON products.prod_id=orderdetail.prod_id);
 
-UPDATE orderdetail SET price=rel_price*quantity FROM calculated_price
+UPDATE orderdetail SET price=rel_price FROM calculated_price
 WHERE orderdetail.prod_id=calculated_price.prod_id
     AND orderdetail.orderid=calculated_price.orderid;
 

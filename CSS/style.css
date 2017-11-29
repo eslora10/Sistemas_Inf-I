@@ -72,8 +72,9 @@ div.main-content {
 }
 
 .input-group{
-	 padding: 1.5em;
+	padding: 1.5em;
     padding-left: 3em;
+    width: 500px;
 }
 /**/
 img.film-image {
@@ -155,6 +156,7 @@ input.form-control{
 
 div.header-form {
     overflow: hidden;
+    min-width: 120px;
 }
 input.input-group-btn{
     background-color: #4CAF50;

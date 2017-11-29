@@ -34,7 +34,7 @@
     </div>
 
     <form class="input-group" method="get" action="index.php">
-        <input type=submit class="input-group-btn">
+        <input type=submit class="input-group-btn" value="Buscar">
         <select class="select-header" name="genre">
             <option value="All" selected>All</option>"
             <?php 
