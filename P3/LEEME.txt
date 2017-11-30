@@ -1,0 +1,3 @@
+Toda la pagina web se encuentra en el directorio PHP.
+Para acceder ella basta con poner el en navegador la ruta hasta /PHP/
+En este momento el navegador reconocera el index.php y la mostrara.

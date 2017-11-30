@@ -1,0 +1,1 @@
+crracion index i_totalAmount PCTON 344 ms
