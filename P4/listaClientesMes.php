@@ -104,9 +104,10 @@ define("DSN","pgsql:host=localhost;dbname=si1p4;options='--client_encoding=UTF8'
           $use_prepare = isset($_REQUEST['prepare']) ? true : false;
           $break0      = isset($_REQUEST['break0']) ? true : false;
           if ($use_prepare) {
-              /* Preparamos la consulta
-              $stmt = ...
-              */
+              /* Preparamos la consulta*/
+             $stmt = $db->prepare("SELECT count(*) as cc FROM (SELECT DISTINCT customerid FROM
+                    orders where totalAmount >= :umbral AND orderdate>= :fechamin AND
+                    orderdate<= :fechamax GROUP BY customerid) AS sub;");
           }
 
           // Impresion de resultados en HTML
@@ -116,10 +117,11 @@ define("DSN","pgsql:host=localhost;dbname=si1p4;options='--client_encoding=UTF8'
           $t0 = microtime(true);
           while($niter < $_REQUEST['iter']) {
             if ($use_prepare) {
-              /* ejecución de consulta preparada
-              ...
-              $linea = ...
-              */
+                $stmt->bindParam(':umbral', $umbral);
+                $stmt->bindParam(':fechamin', $fechamin);
+                $stmt->bindParam(':fechamax', $fechamax);
+                $stmt->execute();
+                $linea = $stmt->fetch();
             }
             else {/*seccion sin preparar*/
                 $consulta = "SELECT count(*) as cc FROM (SELECT DISTINCT customerid FROM
@@ -133,7 +135,6 @@ define("DSN","pgsql:host=localhost;dbname=si1p4;options='--client_encoding=UTF8'
             $niter = $niter + 1;
           }
           echo '</table>';
-          echo $consulta;
           echo '<p>Tiempo: '.round(1000*(microtime(true)-$t0),2).' ms</p>';
           if ($use_prepare) {
             echo '<p><b>Usando prepare</b></p>';
