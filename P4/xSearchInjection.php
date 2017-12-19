@@ -1,7 +1,7 @@
 <?php 
 define("PGUSER", "alumnodb");
 define("PGPASSWORD", "alumnodb");
-define("DSN","pgsql:host=localhost;dbname=si1;options='--client_encoding=UTF8'");
+define("DSN","pgsql:host=localhost;dbname=si1p4;options='--client_encoding=UTF8'");
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
 <html>

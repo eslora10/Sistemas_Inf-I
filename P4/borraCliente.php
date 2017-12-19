@@ -58,6 +58,7 @@ if(!isset($_REQUEST["customerid"])){
             $linea=$database->query($tabla)->fetch();
             echo '<tr><td>'.$linea['customerid'].'</td></tr>';
             echo '</table>';
+            sleep(10);
         $database->exec($query2);
             /*imprimimos tras ejecutar el borrado*/
             echo '<h4>DESPUES DE BORRAR</h4>';
@@ -78,9 +79,11 @@ if(!isset($_REQUEST["customerid"])){
             $linea=$database->query($tabla)->fetch();
             echo '<tr><td>'.$linea['customerid'].'</td></tr>';
             echo '</table>';
+            
         $database->exec($query3);
             /*imprimimos tras ejecutar el borrado*/
             echo '<h4>DESPUES DE BORRAR</h4>';
+            
 
             echo '<table border=1><tr><th>customerid in customers</th></tr>';
             $tabla = "SELECT customerid FROM customers where customerid=".$_REQUEST["customerid"];
@@ -131,6 +134,7 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['customerid'].'</td></tr>';
                 echo '</table>';
+                sleep(10);
             $database->exec($query2);
                 /*imprimimos tras ejecutar el borrado*/
                 echo '<h4>DESPUES DE BORRAR</h4>';
@@ -141,6 +145,8 @@ if(!isset($_REQUEST["customerid"])){
                 echo '<tr><td>'.$linea['customerid'].'</td></tr>';
                 echo '</table>';
 
+                /*sleep para el apartado F*/
+                
             /*query3*/
                 /*imprimimos antes ejecutar el borrado*/
                 echo '<h4>QUERY 3:</h4>';
@@ -151,6 +157,7 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['customerid'].'</td></tr>';
                 echo '</table>';
+                
             $database->exec($query3);
                 /*imprimimos tras ejecutar el borrado*/
                 echo '<h4>DESPUES DE BORRAR</h4>';
