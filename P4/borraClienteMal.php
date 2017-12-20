@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    $database = new PDO("pgsql:dbname=si1p4 host=localhost", "alumnodb", "alumnodb");
+    $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
     $database->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e){
 
@@ -163,6 +163,12 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['orderid'].'</td></tr>';
                 echo '</table>';
+
+                if($commit){
+                    $database->exec("COMMIT;");
+                    echo '<h2>Se ha realizado un commit</h2>';
+                    $database->exec("BEGIN;");
+                }
 
             /*query3 CAMBIANDO EL ORDEN FALLARA*/
                 /*imprimimos antes ejecutar el borrado*/

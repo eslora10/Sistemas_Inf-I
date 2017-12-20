@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-    $database = new PDO("pgsql:dbname=si1p4 host=localhost", "alumnodb", "alumnodb");
+    $database = new PDO("pgsql:dbname=si1 host=localhost", "alumnodb", "alumnodb");
     $database->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e){
 
@@ -26,6 +26,8 @@ if(!isset($_REQUEST["customerid"])){
         try{
             echo "<h1>Transaccion usando PDO <br/></h1>";
             $database->beginTransaction();
+            sleep(10);
+
 
         /*query1*/
             /*imprimimos antes ejecutar el borrado*/
@@ -43,7 +45,8 @@ if(!isset($_REQUEST["customerid"])){
             echo '<h4>DESPUES DE BORRAR</h4>';
 
             echo '<table border=1><tr><th>orderid</th></tr>';
-            $tabla =
+            $tabla ="SELECT orderid FROM orderdetail where orderid in(SELECT orderid from orders where
+                    customerid=".$_REQUEST["customerid"].")";
             $linea=$database->query($tabla)->fetch();
             echo '<tr><td>'.$linea['orderid'].'</td></tr>';
             echo '</table>';
@@ -58,7 +61,7 @@ if(!isset($_REQUEST["customerid"])){
             $linea=$database->query($tabla)->fetch();
             echo '<tr><td>'.$linea['customerid'].'</td></tr>';
             echo '</table>';
-            sleep(10);
+
         $database->exec($query2);
             /*imprimimos tras ejecutar el borrado*/
             echo '<h4>DESPUES DE BORRAR</h4>';
@@ -79,11 +82,10 @@ if(!isset($_REQUEST["customerid"])){
             $linea=$database->query($tabla)->fetch();
             echo '<tr><td>'.$linea['customerid'].'</td></tr>';
             echo '</table>';
-            
         $database->exec($query3);
             /*imprimimos tras ejecutar el borrado*/
             echo '<h4>DESPUES DE BORRAR</h4>';
-            
+
 
             echo '<table border=1><tr><th>customerid in customers</th></tr>';
             $tabla = "SELECT customerid FROM customers where customerid=".$_REQUEST["customerid"];
@@ -102,7 +104,7 @@ if(!isset($_REQUEST["customerid"])){
         try{
             echo "<h1>Transaccion usando exec <br/></h1>";
             $database->exec("BEGIN;");
-
+            sleep(10);
             /*query1*/
                 /*imprimimos antes ejecutar el borrado*/
                 echo '<h4>QUERY 1:</h4>';
@@ -114,6 +116,7 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['orderid'].'</td></tr>';
                 echo '</table>';
+
             $database->exec($query1);
                 /*imprimimos tras ejecutar el borrado*/
                 echo '<h4>DESPUES DE BORRAR</h4>';
@@ -134,7 +137,7 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['customerid'].'</td></tr>';
                 echo '</table>';
-                sleep(10);
+
             $database->exec($query2);
                 /*imprimimos tras ejecutar el borrado*/
                 echo '<h4>DESPUES DE BORRAR</h4>';
@@ -146,7 +149,7 @@ if(!isset($_REQUEST["customerid"])){
                 echo '</table>';
 
                 /*sleep para el apartado F*/
-                
+
             /*query3*/
                 /*imprimimos antes ejecutar el borrado*/
                 echo '<h4>QUERY 3:</h4>';
@@ -157,7 +160,7 @@ if(!isset($_REQUEST["customerid"])){
                 $linea=$database->query($tabla)->fetch();
                 echo '<tr><td>'.$linea['customerid'].'</td></tr>';
                 echo '</table>';
-                
+
             $database->exec($query3);
                 /*imprimimos tras ejecutar el borrado*/
                 echo '<h4>DESPUES DE BORRAR</h4>';
